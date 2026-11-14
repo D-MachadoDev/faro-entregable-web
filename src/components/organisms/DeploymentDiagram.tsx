@@ -1,572 +1,435 @@
 export function DeploymentDiagram() {
   return (
     <div className="space-y-6">
-      {/* Encabezado del diagrama */}
+      {/* Encabezado minimalista */}
       <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-3 border-b border-neutral-200 pb-3">
         <div>
-          <span className="font-mono text-xs font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">
+          <span className="font-mono text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">
             Punto 6.1 · Arquitectura Física
           </span>
           <h2 className="mt-2 text-xl sm:text-2xl font-bold text-neutral-900">
-            Diagrama de Despliegue de la Solución en la Nube
+            Diagrama de Despliegue en la Nube
           </h2>
           <p className="mt-1 text-sm text-neutral-600 max-w-3xl">
-            Muestra la distribución física del software en infraestructura cloud real: clientes web y móviles, perímetro seguro en Vercel Edge, API en ASP.NET Core 10, base de datos serverless en Neon Postgres y bóveda de archivos en Cloudflare R2.
+            Arquitectura física minimalista de Faroo: clientes web y móviles, perímetro en Vercel Edge, API en ASP.NET Core 10, persistencia en Neon Postgres y bóveda de archivos en Cloudflare R2.
           </p>
         </div>
         <div className="text-xs font-mono text-neutral-500 bg-neutral-100 px-3 py-1.5 rounded-lg border border-neutral-200 self-start sm:self-auto shrink-0">
-          UML 2.5 · Deployment View
+          UML 2.5 · Cloud View
         </div>
       </div>
 
-      {/* Lienzo SVG del Diagrama de Despliegue */}
-      <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-4 sm:p-6 overflow-x-auto shadow-xs">
-        <div className="min-w-[1020px] flex justify-center py-2">
+      {/* Lienzo SVG Minimalista con Logos Oficiales */}
+      <div className="rounded-2xl border border-neutral-200 bg-white p-4 sm:p-6 overflow-x-auto shadow-xs">
+        <div className="min-w-[960px] flex justify-center py-2">
           <svg
-            viewBox="0 0 1060 620"
-            className="w-full max-w-[1060px] h-auto select-none"
+            viewBox="0 0 980 460"
+            className="w-full max-w-[980px] h-auto select-none"
             style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
           >
             <defs>
               <marker
-                id="deploy-arrow"
+                id="min-arrow"
                 viewBox="0 0 10 10"
-                refX="8"
+                refX="7"
                 refY="5"
-                markerWidth="6"
-                markerHeight="6"
+                markerWidth="5"
+                markerHeight="5"
                 orient="auto-start-reverse"
               >
-                <path d="M 0 1 L 9 5 L 0 9 z" fill="#334155" />
+                <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#64748B" />
               </marker>
               <marker
-                id="deploy-arrow-blue"
+                id="min-arrow-blue"
                 viewBox="0 0 10 10"
-                refX="8"
+                refX="7"
                 refY="5"
-                markerWidth="6"
-                markerHeight="6"
+                markerWidth="5"
+                markerHeight="5"
                 orient="auto-start-reverse"
               >
-                <path d="M 0 1 L 9 5 L 0 9 z" fill="#2563EB" />
+                <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#2563EB" />
               </marker>
               <marker
-                id="deploy-arrow-green"
+                id="min-arrow-green"
                 viewBox="0 0 10 10"
-                refX="8"
+                refX="7"
                 refY="5"
-                markerWidth="6"
-                markerHeight="6"
+                markerWidth="5"
+                markerHeight="5"
                 orient="auto-start-reverse"
               >
-                <path d="M 0 1 L 9 5 L 0 9 z" fill="#059669" />
+                <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#059669" />
               </marker>
               <marker
-                id="deploy-arrow-orange"
+                id="min-arrow-orange"
                 viewBox="0 0 10 10"
-                refX="8"
+                refX="7"
                 refY="5"
-                markerWidth="6"
-                markerHeight="6"
+                markerWidth="5"
+                markerHeight="5"
                 orient="auto-start-reverse"
               >
-                <path d="M 0 1 L 9 5 L 0 9 z" fill="#D97706" />
+                <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#EA580C" />
               </marker>
-              <filter id="card-shadow" x="-5%" y="-5%" width="110%" height="110%">
-                <feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity="0.06" />
+              <filter id="soft-shadow" x="-4%" y="-4%" width="108%" height="108%">
+                <feDropShadow dx="0" dy="2" stdDeviation="2.5" floodColor="#0F172A" floodOpacity="0.04" />
               </filter>
             </defs>
 
-            {/* CONTENEDOR ENTORNO NUBE (CLOUD BOUNDARY) */}
+            {/* Contenedor perimetral de Nube */}
             <rect
-              x="260"
+              x="220"
               y="20"
-              width="780"
-              height="580"
+              width="740"
+              height="420"
               rx="16"
-              fill="#FFFFFF"
-              stroke="#CBD5E1"
-              strokeWidth="1.8"
-              strokeDasharray="6 4"
+              fill="#FAFAFA"
+              stroke="#E2E8F0"
+              strokeWidth="1.5"
+              strokeDasharray="5 5"
             />
-            <rect x="260" y="20" width="780" height="34" rx="16" fill="#F8FAFC" />
-            <text x="280" y="42" fontSize="12" fontWeight="bold" fill="#0F172A" letterSpacing="0.8">
-              INFRAESTRUCTURA CLOUD DE PRODUCCIÓN · FAROO
-            </text>
-            <text x="890" y="42" fontSize="10" fontWeight="bold" fill="#64748B" fontFamily="monospace">
-              MULTI-CLOUD TIERS
+            <text x="240" y="42" fontSize="10.5" fontWeight="bold" fill="#64748B" letterSpacing="1">
+              INFRAESTRUCTURA MULTI-CLOUD · FAROO
             </text>
 
-            {/* ---------------------------------------------------- */}
-            {/* TIER 1: CLIENTES / DISPOSITIVOS (FUERA DE LA NUBE)   */}
-            {/* ---------------------------------------------------- */}
-            <g transform="translate(20, 70)">
-              {/* Contenedor Clientes */}
-              <rect x="0" y="0" width="200" height="480" rx="14" fill="#F8FAFC" stroke="#E2E8F0" strokeWidth="1.5" />
-              <text x="16" y="28" fontSize="12" fontWeight="bold" fill="#1E293B">
-                DISPOSITIVOS / CLIENTES
+            {/* ======================================================== */}
+            {/* NODO 1: CLIENTES (DISPOSITIVOS)                          */}
+            {/* ======================================================== */}
+            <g transform="translate(20, 70)" filter="url(#soft-shadow)">
+              <rect x="0" y="0" width="165" height="320" rx="14" fill="#FFFFFF" stroke="#E2E8F0" strokeWidth="1.5" />
+              
+              {/* Encabezado */}
+              <text x="16" y="26" fontSize="11" fontWeight="bold" fill="#0F172A">
+                Clientes
               </text>
-              <text x="16" y="44" fontSize="10" fill="#64748B">
+              <text x="16" y="40" fontSize="9" fill="#64748B">
                 Puntos de interacción
               </text>
+              <line x1="16" y1="50" x2="149" y2="50" stroke="#F1F5F9" strokeWidth="1" />
 
-              {/* Nodo Propietario (Desktop) */}
-              <g transform="translate(14, 60)" filter="url(#card-shadow)">
-                <rect x="0" y="0" width="172" height="150" rx="10" fill="#FFFFFF" stroke="#3B82F6" strokeWidth="1.5" />
-                <rect x="0" y="0" width="172" height="26" rx="10" fill="#EFF6FF" />
-                <text x="10" y="17" fontSize="10" fontWeight="bold" fill="#1D4ED8">
-                  «device» Desktop / Laptop
-                </text>
-                <text x="10" y="46" fontSize="11" fontWeight="bold" fill="#0F172A">
-                  Navegador Propietario
-                </text>
-                <text x="10" y="62" fontSize="9.5" fill="#475569">
-                  SPA React 18 + TypeScript
-                </text>
-                <text x="10" y="76" fontSize="9.5" fill="#475569">
-                  Tailwind CSS + Vite Bundle
-                </text>
-                <line x1="10" y1="88" x2="162" y2="88" stroke="#E2E8F0" strokeWidth="1" />
-                <text x="10" y="104" fontSize="9" fontWeight="600" fill="#2563EB">
-                  Funciones:
-                </text>
-                <text x="10" y="118" fontSize="8.5" fill="#64748B">
-                  • Gestión de inmuebles y contratos
-                </text>
-                <text x="10" y="132" fontSize="8.5" fill="#64748B">
-                  • Conciliación y recibos oficiales
-                </text>
-              </g>
-
-              {/* Nodo Inquilino (Mobile) */}
-              <g transform="translate(14, 240)" filter="url(#card-shadow)">
-                <rect x="0" y="0" width="172" height="150" rx="10" fill="#FFFFFF" stroke="#10B981" strokeWidth="1.5" />
-                <rect x="0" y="0" width="172" height="26" rx="10" fill="#ECFDF5" />
-                <text x="10" y="17" fontSize="10" fontWeight="bold" fill="#047857">
-                  «device» Smartphone / Móvil
-                </text>
-                <text x="10" y="46" fontSize="11" fontWeight="bold" fill="#0F172A">
-                  Portal del Inquilino
-                </text>
-                <text x="10" y="62" fontSize="9.5" fill="#475569">
-                  PWA Responsive Web
-                </text>
-                <text x="10" y="76" fontSize="9.5" fill="#475569">
-                  Autenticación vía JWT / Token
-                </text>
-                <line x1="10" y1="88" x2="162" y2="88" stroke="#E2E8F0" strokeWidth="1" />
-                <text x="10" y="104" fontSize="9" fontWeight="600" fill="#059669">
-                  Funciones:
-                </text>
-                <text x="10" y="118" fontSize="8.5" fill="#64748B">
-                  • Carga de comprobante bancario
-                </text>
-                <text x="10" y="132" fontSize="8.5" fill="#64748B">
-                  • Descarga de contrato y recibos
-                </text>
-              </g>
-
-              <text x="16" y="424" fontSize="9" fill="#94A3B8" fontStyle="italic">
-                Conexión segura vía TLS 1.3
-              </text>
-              <text x="16" y="438" fontSize="9" fill="#94A3B8" fontStyle="italic">
-                Puerto HTTPS 443 estándar
-              </text>
-            </g>
-
-            {/* ---------------------------------------------------- */}
-            {/* TIER 2: PERÍMETRO Y HOSTING FRONTEND (VERCEL EDGE)   */}
-            {/* ---------------------------------------------------- */}
-            <g transform="translate(280, 70)" filter="url(#card-shadow)">
-              <rect x="0" y="0" width="220" height="480" rx="12" fill="#FFFFFF" stroke="#6366F1" strokeWidth="1.5" />
-              <rect x="0" y="0" width="220" height="30" rx="12" fill="#EEF2FF" />
-              <text x="12" y="20" fontSize="11" fontWeight="bold" fill="#4338CA">
-                «node» Vercel Global Edge
-              </text>
-
-              {/* Submódulos Vercel */}
-              <g transform="translate(12, 44)">
-                <rect x="0" y="0" width="196" height="75" rx="8" fill="#F8FAFC" stroke="#CBD5E1" strokeWidth="1" />
-                <text x="10" y="18" fontSize="10" fontWeight="bold" fill="#1E293B">
-                  Perímetro de Red & DNS
-                </text>
-                <text x="10" y="34" fontSize="9" fill="#64748B">
-                  • DNS Anycast con baja latencia
-                </text>
-                <text x="10" y="48" fontSize="9" fill="#64748B">
-                  • Terminación SSL/TLS 1.3
-                </text>
-                <text x="10" y="62" fontSize="9" fill="#64748B">
-                  • Mitigación DDoS y WAF Edge
-                </text>
-              </g>
-
-              <g transform="translate(12, 130)">
-                <rect x="0" y="0" width="196" height="95" rx="8" fill="#F8FAFC" stroke="#CBD5E1" strokeWidth="1" />
-                <text x="10" y="18" fontSize="10" fontWeight="bold" fill="#1E293B">
-                  Edge CDN & Static Hosting
-                </text>
-                <text x="10" y="34" fontSize="9" fill="#64748B">
-                  • Assets compilados (HTML/JS/CSS)
-                </text>
-                <text x="10" y="48" fontSize="9" fill="#64748B">
-                  • Compresión Brotli y Gzip
-                </text>
-                <text x="10" y="62" fontSize="9" fill="#64748B">
-                  • Caché distribuido globalmente
-                </text>
-                <text x="10" y="80" fontSize="8.5" fontWeight="600" fill="#4F46E5">
-                  URL: faro-entregable-web.vercel.app
-                </text>
-              </g>
-
-              <g transform="translate(12, 238)">
-                <rect x="0" y="0" width="196" height="120" rx="8" fill="#F8FAFC" stroke="#CBD5E1" strokeWidth="1" />
-                <text x="10" y="18" fontSize="10" fontWeight="bold" fill="#1E293B">
-                  Políticas de Seguridad Cliente
-                </text>
-                <text x="10" y="34" fontSize="9" fill="#64748B">
-                  • Strict-Transport-Security (HSTS)
-                </text>
-                <text x="10" y="48" fontSize="9" fill="#64748B">
-                  • Content-Security-Policy (CSP)
-                </text>
-                <text x="10" y="62" fontSize="9" fill="#64748B">
-                  • X-Content-Type-Options nosniff
-                </text>
-                <text x="10" y="78" fontSize="9" fill="#64748B">
-                  • Referrer-Policy strict-origin
-                </text>
-                <text x="10" y="100" fontSize="8.5" fontWeight="600" fill="#047857">
-                  Tokens en SessionStorage seguro
-                </text>
-              </g>
-
-              <g transform="translate(12, 372)">
-                <rect x="0" y="0" width="196" height="92" rx="8" fill="#FEF3C7" stroke="#F59E0B" strokeWidth="1" />
-                <text x="10" y="18" fontSize="10" fontWeight="bold" fill="#B45309">
-                  Reverse Proxy / API Gateway
-                </text>
-                <text x="10" y="34" fontSize="9" fill="#78350F">
-                  • Enrutamiento de peticiones /api/*
-                </text>
-                <text x="10" y="48" fontSize="9" fill="#78350F">
-                  • Reenvío seguro HTTPS con CORS
-                </text>
-                <text x="10" y="64" fontSize="9" fill="#78350F">
-                  • Timeout 30s con reintento seguro
-                </text>
-                <text x="10" y="80" fontSize="8.5" fontWeight="bold" fill="#92400E">
-                  API Target: Host ASP.NET Core
-                </text>
-              </g>
-            </g>
-
-            {/* ---------------------------------------------------- */}
-            {/* TIER 3: COMPUTO BACKEND API (ASP.NET CORE 10)        */}
-            {/* ---------------------------------------------------- */}
-            <g transform="translate(535, 70)" filter="url(#card-shadow)">
-              <rect x="0" y="0" width="240" height="480" rx="12" fill="#FFFFFF" stroke="#8B5CF6" strokeWidth="1.5" />
-              <rect x="0" y="0" width="240" height="30" rx="12" fill="#F5F3FF" />
-              <text x="12" y="20" fontSize="11" fontWeight="bold" fill="#6D28D9">
-                «executionEnvironment» Linux Container
-              </text>
-
-              <g transform="translate(12, 40)">
-                <rect x="0" y="0" width="216" height="30" rx="6" fill="#F3E8FF" stroke="#C084FC" strokeWidth="1" />
-                <text x="10" y="20" fontSize="11" fontWeight="bold" fill="#581C87">
-                  ASP.NET Core 10 Web API (C#)
-                </text>
-              </g>
-
-              {/* Middleware Pipeline */}
-              <g transform="translate(12, 80)">
-                <rect x="0" y="0" width="216" height="110" rx="8" fill="#F8FAFC" stroke="#CBD5E1" strokeWidth="1" />
-                <text x="10" y="18" fontSize="10" fontWeight="bold" fill="#1E293B">
-                  Pipeline de Middlewares (.NET)
-                </text>
-                <text x="10" y="34" fontSize="9" fill="#475569">
-                  • UseAuthentication (JWT HMAC-256)
-                </text>
-                <text x="10" y="48" fontSize="9" fill="#475569">
-                  • UseAuthorization (Role-based policies)
-                </text>
-                <text x="10" y="62" fontSize="9" fill="#475569">
-                  • RateLimiter (Token Bucket anti-brute)
-                </text>
-                <text x="10" y="76" fontSize="9" fill="#475569">
-                  • ProblemDetails (RFC 7807 Exceptions)
-                </text>
-                <text x="10" y="90" fontSize="9" fill="#475569">
-                  • Serilog Structured JSON Logging
-                </text>
-              </g>
-
-              {/* Modulos del Core */}
-              <g transform="translate(12, 200)">
-                <rect x="0" y="0" width="216" height="150" rx="8" fill="#F8FAFC" stroke="#CBD5E1" strokeWidth="1" />
-                <text x="10" y="18" fontSize="10" fontWeight="bold" fill="#1E293B">
-                  Módulos de Negocio (Domain)
-                </text>
-                <text x="10" y="34" fontSize="9" fill="#475569">
-                  • PropertiesService (Catálogo & Ocupación)
-                </text>
-                <text x="10" y="48" fontSize="9" fill="#475569">
-                  • TenantsService (Fichas & Validación)
-                </text>
-                <text x="10" y="62" fontSize="9" fill="#475569">
-                  • ContractsService (Ley 820 & Códigos)
-                </text>
-                <text x="10" y="76" fontSize="9" fill="#475569">
-                  • ChargesEngine (Cálculo & Estados)
-                </text>
-                <text x="10" y="90" fontSize="9" fill="#475569">
-                  • ReconciliationTray (Cruce de recibos)
-                </text>
-                <text x="10" y="104" fontSize="9" fill="#475569">
-                  • DocumentsVault (Integración Cloudflare R2)
-                </text>
-                <line x1="10" y1="114" x2="206" y2="114" stroke="#E2E8F0" strokeWidth="1" />
-                <text x="10" y="128" fontSize="8.5" fontWeight="bold" fill="#6D28D9">
-                  Arquitectura Limpia · EF Core 10
-                </text>
-                <text x="10" y="140" fontSize="8" fill="#64748B">
-                  Inyección de dependencias nativa C#
-                </text>
-              </g>
-
-              {/* Motor de PDF */}
-              <g transform="translate(12, 360)">
-                <rect x="0" y="0" width="216" height="104" rx="8" fill="#FEF2F2" stroke="#F87171" strokeWidth="1" />
-                <text x="10" y="18" fontSize="10" fontWeight="bold" fill="#991B1B">
-                  Motor de Renderizado QuestPDF
-                </text>
-                <text x="10" y="34" fontSize="9" fill="#7F1D1D">
-                  • Generación vectorial C# en memoria
-                </text>
-                <text x="10" y="48" fontSize="9" fill="#7F1D1D">
-                  • Plantillas oficiales de Contrato Ley 820
-                </text>
-                <text x="10" y="62" fontSize="9" fill="#7F1D1D">
-                  • Recibos oficiales con código QR y sello
-                </text>
-                <text x="10" y="76" fontSize="9" fill="#7F1D1D">
-                  • Cero dependencias de headless browser
-                </text>
-                <text x="10" y="92" fontSize="8.5" fontWeight="bold" fill="#B91C1C">
-                  Tiempo de generación: &lt; 85 ms
-                </text>
-              </g>
-            </g>
-
-            {/* ---------------------------------------------------- */}
-            {/* TIER 4: PERSISTENCIA Y BÓVEDA (NEON DB + CLOUDFLARE R2) */}
-            {/* ---------------------------------------------------- */}
-            <g transform="translate(805, 70)">
-              {/* Neon Postgres Serverless */}
-              <g filter="url(#card-shadow)">
-                <rect x="0" y="0" width="215" height="230" rx="12" fill="#FFFFFF" stroke="#059669" strokeWidth="1.5" />
-                <rect x="0" y="0" width="215" height="30" rx="12" fill="#ECFDF5" />
-                <text x="12" y="20" fontSize="11" fontWeight="bold" fill="#047857">
-                  «database» Neon Postgres
-                </text>
-                <g transform="translate(12, 40)">
-                  <text x="0" y="14" fontSize="10" fontWeight="bold" fill="#0F172A">
-                    PostgreSQL 16 Serverless
-                  </text>
-                  <text x="0" y="28" fontSize="9" fill="#475569">
-                    • Región: AWS us-east-2 (Ohio)
-                  </text>
-                  <text x="0" y="42" fontSize="9" fill="#475569">
-                    • PgBouncer Connection Pooler
-                  </text>
-                  <text x="0" y="56" fontSize="9" fill="#475569">
-                    • Escalado 0.25 → 2 vCPU dinámico
-                  </text>
-                  <text x="0" y="70" fontSize="9" fill="#475569">
-                    • Auto-suspensión para ahorro de coste
-                  </text>
-                  <text x="0" y="84" fontSize="9" fill="#475569">
-                    • Conexión forzada sslmode=require
-                  </text>
-                  <line x1="0" y1="96" x2="190" y2="96" stroke="#E2E8F0" strokeWidth="1" />
-                  <text x="0" y="112" fontSize="9" fontWeight="600" fill="#059669">
-                    Esquema Relacional (13 Tablas):
-                  </text>
-                  <text x="0" y="126" fontSize="8.5" fill="#64748B">
-                    users, properties, tenants, contracts,
-                  </text>
-                  <text x="0" y="140" fontSize="8.5" fill="#64748B">
-                    charges, payments, documents_metadata,
-                  </text>
-                  <text x="0" y="154" fontSize="8.5" fill="#64748B">
-                    notifications, outbox_messages...
-                  </text>
-                  <text x="0" y="172" fontSize="8.5" fontWeight="bold" fill="#065F46">
-                    Puerto: TCP 5432 (TLS 1.3)
-                  </text>
+              {/* Sub-tarjeta Desktop */}
+              <g transform="translate(14, 62)">
+                <rect x="0" y="0" width="137" height="105" rx="8" fill="#F8FAFC" stroke="#E2E8F0" strokeWidth="1" />
+                {/* Logo Laptop */}
+                <g transform="translate(10, 10)">
+                  <rect x="2" y="2" width="22" height="14" rx="1.5" fill="#FFFFFF" stroke="#334155" strokeWidth="1.2" />
+                  <rect x="4" y="4" width="18" height="10" fill="#E2E8F0" />
+                  <path d="M0 18 L26 18 L24 20 L2 20 Z" fill="#64748B" />
                 </g>
+                {/* Logo React */}
+                <g transform="translate(102, 8)" fill="none" stroke="#0284C7" strokeWidth="1.4">
+                  <ellipse cx="12" cy="12" rx="11" ry="4.5" />
+                  <ellipse cx="12" cy="12" rx="11" ry="4.5" transform="rotate(60 12 12)" />
+                  <ellipse cx="12" cy="12" rx="11" ry="4.5" transform="rotate(120 12 12)" />
+                  <circle cx="12" cy="12" r="2" fill="#0284C7" stroke="none" />
+                </g>
+
+                <text x="10" y="44" fontSize="11" fontWeight="bold" fill="#0F172A">
+                  Propietario
+                </text>
+                <text x="10" y="58" fontSize="9" fill="#64748B">
+                  SPA Web Desktop
+                </text>
+                <text x="10" y="72" fontSize="8.5" fill="#0284C7" fontWeight="600">
+                  React 18 + Vite
+                </text>
+                <rect x="10" y="80" width="70" height="16" rx="4" fill="#EFF6FF" />
+                <text x="14" y="91" fontSize="8" fontWeight="bold" fill="#1D4ED8">
+                  Acceso Total
+                </text>
               </g>
 
-              {/* Cloudflare R2 Object Storage */}
-              <g transform="translate(0, 250)" filter="url(#card-shadow)">
-                <rect x="0" y="0" width="215" height="230" rx="12" fill="#FFFFFF" stroke="#EA580C" strokeWidth="1.5" />
-                <rect x="0" y="0" width="215" height="30" rx="12" fill="#FFF7ED" />
-                <text x="12" y="20" fontSize="11" fontWeight="bold" fill="#C2410C">
-                  «storage» Cloudflare R2
-                </text>
-                <g transform="translate(12, 40)">
-                  <text x="0" y="14" fontSize="10" fontWeight="bold" fill="#0F172A">
-                    Bóveda Documental S3-API
-                  </text>
-                  <text x="0" y="28" fontSize="9" fill="#475569">
-                    • Bucket privado: faro-files
-                  </text>
-                  <text x="0" y="42" fontSize="9" fill="#475569">
-                    • Zero-Egress Fee (descargas sin coste)
-                  </text>
-                  <text x="0" y="56" fontSize="9" fill="#475569">
-                    • Cifrado en reposo AES-256
-                  </text>
-                  <text x="0" y="70" fontSize="9" fill="#475569">
-                    • URLs prefirmadas (TTL 15 minutos)
-                  </text>
-                  <line x1="0" y1="84" x2="190" y2="84" stroke="#E2E8F0" strokeWidth="1" />
-                  <text x="0" y="100" fontSize="9" fontWeight="600" fill="#EA580C">
-                    Archivos Gestionados:
-                  </text>
-                  <text x="0" y="114" fontSize="8.5" fill="#64748B">
-                    • Contratos firmados en PDF (Ley 820)
-                  </text>
-                  <text x="0" y="128" fontSize="8.5" fill="#64748B">
-                    • Comprobantes de pago (PNG, JPG, PDF)
-                  </text>
-                  <text x="0" y="142" fontSize="8.5" fill="#64748B">
-                    • Cédulas y documentos de soporte
-                  </text>
-                  <text x="0" y="160" fontSize="8.5" fontWeight="bold" fill="#9A3412">
-                    Protocolo: HTTPS S3 SDK Presigned
-                  </text>
+              {/* Sub-tarjeta Mobile */}
+              <g transform="translate(14, 180)">
+                <rect x="0" y="0" width="137" height="105" rx="8" fill="#F8FAFC" stroke="#E2E8F0" strokeWidth="1" />
+                {/* Logo Móvil */}
+                <g transform="translate(10, 10)">
+                  <rect x="4" y="0" width="14" height="22" rx="3" fill="#FFFFFF" stroke="#334155" strokeWidth="1.2" />
+                  <rect x="6" y="3" width="10" height="14" rx="1" fill="#E2E8F0" />
+                  <circle cx="11" cy="19" r="0.8" fill="#64748B" />
                 </g>
+                <text x="10" y="44" fontSize="11" fontWeight="bold" fill="#0F172A">
+                  Inquilino
+                </text>
+                <text x="10" y="58" fontSize="9" fill="#64748B">
+                  Portal Web PWA
+                </text>
+                <text x="10" y="72" fontSize="8.5" fill="#059669" fontWeight="600">
+                  Mobile Responsive
+                </text>
+                <rect x="10" y="80" width="84" height="16" rx="4" fill="#ECFDF5" />
+                <text x="14" y="91" fontSize="8" fontWeight="bold" fill="#047857">
+                  Comprobantes
+                </text>
               </g>
             </g>
 
-            {/* ---------------------------------------------------- */}
-            {/* FLECHAS Y CONEXIONES ENTRE NODOS CON ETIQUETAS       */}
-            {/* ---------------------------------------------------- */}
+            {/* ======================================================== */}
+            {/* NODO 2: VERCEL GLOBAL EDGE (FRONTEND HOSTING & CDN)      */}
+            {/* ======================================================== */}
+            <g transform="translate(245, 120)" filter="url(#soft-shadow)">
+              <rect x="0" y="0" width="180" height="220" rx="12" fill="#FFFFFF" stroke="#000000" strokeWidth="1.4" />
+              
+              {/* Logo Vercel */}
+              <g transform="translate(18, 18)">
+                <polygon points="12,1 24,21 0,21" fill="#000000" />
+              </g>
+              <rect x="125" y="16" width="40" height="18" rx="4" fill="#F1F5F9" />
+              <text x="131" y="28" fontSize="8.5" fontWeight="bold" fill="#334155">
+                EDGE
+              </text>
 
-            {/* Flecha 1: Clientes -> Vercel Edge */}
-            <path
-              d="M 220 180 L 280 180"
-              stroke="#334155"
-              strokeWidth="2"
-              fill="none"
-              markerEnd="url(#deploy-arrow)"
-            />
-            <path
-              d="M 220 380 L 250 380 L 250 220 L 280 220"
-              stroke="#334155"
-              strokeWidth="2"
-              fill="none"
-              markerEnd="url(#deploy-arrow)"
-            />
-            <rect x="224" y="160" width="52" height="18" rx="4" fill="#F1F5F9" stroke="#CBD5E1" strokeWidth="0.8" />
-            <text x="227" y="172" fontSize="8" fontWeight="bold" fill="#0F172A">
-              HTTPS 443
+              <text x="18" y="60" fontSize="13" fontWeight="bold" fill="#000000">
+                Vercel
+              </text>
+              <text x="18" y="74" fontSize="9.5" fill="#64748B">
+                Global Edge Network
+              </text>
+
+              <line x1="18" y1="86" x2="162" y2="86" stroke="#F1F5F9" strokeWidth="1" />
+
+              {/* Badges minimalistas */}
+              <g transform="translate(18, 98)">
+                <rect x="0" y="0" width="144" height="22" rx="5" fill="#F8FAFC" stroke="#E2E8F0" strokeWidth="0.8" />
+                <circle cx="10" cy="11" r="2.5" fill="#10B981" />
+                <text x="18" y="14" fontSize="8.5" fontWeight="600" fill="#334155">
+                  Anycast DNS & SSL TLS 1.3
+                </text>
+
+                <rect x="0" y="28" width="144" height="22" rx="5" fill="#F8FAFC" stroke="#E2E8F0" strokeWidth="0.8" />
+                <circle cx="10" cy="39" r="2.5" fill="#3B82F6" />
+                <text x="18" y="42" fontSize="8.5" fontWeight="600" fill="#334155">
+                  Static CDN (Brotli Cache)
+                </text>
+
+                <rect x="0" y="56" width="144" height="22" rx="5" fill="#F8FAFC" stroke="#E2E8F0" strokeWidth="0.8" />
+                <circle cx="10" cy="67" r="2.5" fill="#8B5CF6" />
+                <text x="18" y="70" fontSize="8.5" fontWeight="600" fill="#334155">
+                  WAF & DDoS Mitigation
+                </text>
+
+                <rect x="0" y="84" width="144" height="22" rx="5" fill="#FEF3C7" stroke="#FDE68A" strokeWidth="0.8" />
+                <text x="8" y="98" fontSize="8" fontWeight="bold" fill="#92400E">
+                  faro-entregable-web.vercel.app
+                </text>
+              </g>
+            </g>
+
+            {/* ======================================================== */}
+            {/* NODO 3: BACKEND API (ASP.NET CORE 10 EN LINUX)           */}
+            {/* ======================================================== */}
+            <g transform="translate(485, 100)" filter="url(#soft-shadow)">
+              <rect x="0" y="0" width="195" height="260" rx="12" fill="#FFFFFF" stroke="#512BD4" strokeWidth="1.5" />
+
+              {/* Logo .NET */}
+              <g transform="translate(18, 16)">
+                <rect width="26" height="26" rx="6" fill="#512BD4" />
+                <text x="13" y="17" fill="#FFFFFF" fontSize="9" fontWeight="900" textAnchor="middle">
+                  .NET
+                </text>
+              </g>
+              <rect x="135" y="16" width="44" height="18" rx="4" fill="#F5F3FF" />
+              <text x="140" y="28" fontSize="8" fontWeight="bold" fill="#6D28D9">
+                LINUX
+              </text>
+
+              <text x="18" y="60" fontSize="13" fontWeight="bold" fill="#1E1B4B">
+                ASP.NET Core 10
+              </text>
+              <text x="18" y="74" fontSize="9.5" fill="#64748B">
+                Web API · C# Clean Architecture
+              </text>
+
+              <line x1="18" y1="86" x2="177" y2="86" stroke="#F1F5F9" strokeWidth="1" />
+
+              {/* Badges minimalistas */}
+              <g transform="translate(18, 96)">
+                <rect x="0" y="0" width="159" height="22" rx="5" fill="#F8FAFC" stroke="#E2E8F0" strokeWidth="0.8" />
+                <text x="8" y="14" fontSize="8.5" fontWeight="600" fill="#334155">
+                  🔐 JWT Bearer (HMAC-SHA256)
+                </text>
+
+                <rect x="0" y="28" width="159" height="22" rx="5" fill="#F8FAFC" stroke="#E2E8F0" strokeWidth="0.8" />
+                <text x="8" y="42" fontSize="8.5" fontWeight="600" fill="#334155">
+                  🛡️ Rate Limiter (Token Bucket)
+                </text>
+
+                <rect x="0" y="56" width="159" height="22" rx="5" fill="#F8FAFC" stroke="#E2E8F0" strokeWidth="0.8" />
+                <text x="8" y="70" fontSize="8.5" fontWeight="600" fill="#334155">
+                  📜 Reglas Ley 820 & Reajustes
+                </text>
+
+                <rect x="0" y="84" width="159" height="22" rx="5" fill="#F8FAFC" stroke="#E2E8F0" strokeWidth="0.8" />
+                <text x="8" y="98" fontSize="8.5" fontWeight="600" fill="#334155">
+                  💰 Conciliación & Recibos
+                </text>
+
+                <rect x="0" y="112" width="159" height="26" rx="5" fill="#EFF6FF" stroke="#BFDBFE" strokeWidth="0.8" />
+                <text x="8" y="125" fontSize="8" fontWeight="bold" fill="#1D4ED8">
+                  ⚡ QuestPDF Engine
+                </text>
+                <text x="8" y="134" fontSize="7.5" fill="#3B82F6">
+                  Render PDF vectorial &lt; 85ms
+                </text>
+              </g>
+            </g>
+
+            {/* ======================================================== */}
+            {/* NODO 4: NEON POSTGRESQL (BASE DE DATOS)                  */}
+            {/* ======================================================== */}
+            <g transform="translate(740, 70)" filter="url(#soft-shadow)">
+              <rect x="0" y="0" width="195" height="145" rx="12" fill="#FFFFFF" stroke="#00E699" strokeWidth="1.5" />
+
+              {/* Logo Neon / Postgres */}
+              <g transform="translate(16, 16)">
+                <rect width="26" height="26" rx="6" fill="#00E699" />
+                {/* Silueta de elefante Postgres */}
+                <path d="M7 8 C10 6 16 6 19 8 C21 10 22 13 21 16 C20 18 19 19 17 20 L17 23 L14 23 L14 19 C12 18 11 17 10 15 Z" fill="#0A0A0A" />
+              </g>
+              <rect x="135" y="16" width="44" height="18" rx="4" fill="#ECFDF5" />
+              <text x="140" y="28" fontSize="8" fontWeight="bold" fill="#047857">
+                DaaS
+              </text>
+
+              <text x="16" y="58" fontSize="13" fontWeight="bold" fill="#0F172A">
+                Neon Postgres
+              </text>
+              <text x="16" y="72" fontSize="9" fill="#64748B">
+                Serverless PostgreSQL 16
+              </text>
+
+              <line x1="16" y1="82" x2="179" y2="82" stroke="#F1F5F9" strokeWidth="1" />
+
+              {/* Badges */}
+              <g transform="translate(16, 92)">
+                <rect x="0" y="0" width="163" height="18" rx="4" fill="#F8FAFC" stroke="#E2E8F0" strokeWidth="0.8" />
+                <text x="8" y="12" fontSize="8" fontWeight="600" fill="#334155">
+                  AWS us-east-2 · PgBouncer Pool
+                </text>
+
+                <rect x="0" y="22" width="163" height="18" rx="4" fill="#ECFDF5" stroke="#A7F3D0" strokeWidth="0.8" />
+                <text x="8" y="34" fontSize="8" fontWeight="bold" fill="#065F46">
+                  13 tablas relacionales (ACID)
+                </text>
+              </g>
+            </g>
+
+            {/* ======================================================== */}
+            {/* NODO 5: CLOUDFLARE R2 (BÓVEDA DE DOCUMENTOS)             */}
+            {/* ======================================================== */}
+            <g transform="translate(740, 245)" filter="url(#soft-shadow)">
+              <rect x="0" y="0" width="195" height="145" rx="12" fill="#FFFFFF" stroke="#F38020" strokeWidth="1.5" />
+
+              {/* Logo Cloudflare */}
+              <g transform="translate(16, 16)">
+                <rect width="26" height="26" rx="6" fill="#FFF7ED" stroke="#FDBA74" strokeWidth="0.8" />
+                {/* Nube Cloudflare naranja */}
+                <path d="M19 12 C18.5 9.5 16.5 8 14 8.2 C12 8.3 10.3 9.5 9.7 11.2 C8.5 11.4 7.6 12.3 7.6 13.5 C7.6 14.8 8.7 15.8 10 15.8 L18.8 15.8 C20 15.8 21 14.8 21 13.5 C21 12.3 20.2 12.1 19 12 Z" fill="#F38020" />
+              </g>
+              <rect x="142" y="16" width="37" height="18" rx="4" fill="#FFF7ED" />
+              <text x="146" y="28" fontSize="8" fontWeight="bold" fill="#C2410C">
+                S3
+              </text>
+
+              <text x="16" y="58" fontSize="13" fontWeight="bold" fill="#0F172A">
+                Cloudflare R2
+              </text>
+              <text x="16" y="72" fontSize="9" fill="#64748B">
+                Object Storage Zero-Egress
+              </text>
+
+              <line x1="16" y1="82" x2="179" y2="82" stroke="#F1F5F9" strokeWidth="1" />
+
+              {/* Badges */}
+              <g transform="translate(16, 92)">
+                <rect x="0" y="0" width="163" height="18" rx="4" fill="#F8FAFC" stroke="#E2E8F0" strokeWidth="0.8" />
+                <text x="8" y="12" fontSize="8" fontWeight="600" fill="#334155">
+                  Bucket: faro-files (AES-256)
+                </text>
+
+                <rect x="0" y="22" width="163" height="18" rx="4" fill="#FFFBEB" stroke="#FDE68A" strokeWidth="0.8" />
+                <text x="8" y="34" fontSize="8" fontWeight="bold" fill="#92400E">
+                  Contratos PDF & Comprobantes
+                </text>
+              </g>
+            </g>
+
+            {/* ======================================================== */}
+            {/* SERVICIOS EXTERNOS (WHATSAPP CLOUD API)                   */}
+            {/* ======================================================== */}
+            <g transform="translate(485, 385)">
+              <rect x="0" y="0" width="195" height="42" rx="8" fill="#FFFFFF" stroke="#25D366" strokeWidth="1.2" />
+              {/* Logo WhatsApp */}
+              <g transform="translate(10, 8)">
+                <circle cx="13" cy="13" r="13" fill="#25D366" />
+                <path d="M13 5 C8.5 5 5 8.5 5 13 C5 14.5 5.4 16 6.2 17.2 L5.2 21 L9.1 20 C10.3 20.7 11.6 21 13 21 C17.5 21 21 17.5 21 13 C21 8.5 17.5 5 13 5 Z" fill="#FFFFFF" />
+                <path d="M11 9 C10.7 8.5 10.3 8.5 10 8.5 C9.7 8.5 9.4 8.5 9.1 8.7 C8.8 9.1 8.1 9.7 8.1 11 C8.1 12.3 9 13.6 9.2 13.8 C9.4 14 11 16.5 13.5 17.5 C15.7 18.4 16.1 18.2 16.6 18.1 C17.1 18 18 17.5 18.2 16.8 C18.4 16.1 18.4 15.6 18.3 15.4 C18.2 15.3 17.9 15.2 17.5 15 C17.1 14.8 15.3 13.9 15 13.7 C14.7 13.6 14.5 13.5 14.2 13.9 C13.9 14.3 13.3 15 13 15.3 C12.8 15.5 12.6 15.5 12.2 15.3 C11.8 15.1 10.5 14.7 9 13.4 C7.9 12.4 7.1 11.2 6.9 10.7 C6.7 10.4 6.9 10.1 7.1 9.9 C7.3 9.7 7.5 9.5 7.7 9.2 Z" fill="#25D366" />
+              </g>
+              <text x="44" y="18" fontSize="10" fontWeight="bold" fill="#0F172A">
+                Meta WhatsApp API
+              </text>
+              <text x="44" y="32" fontSize="8" fill="#64748B">
+                Notificaciones y Enlaces
+              </text>
+            </g>
+
+            {/* ======================================================== */}
+            {/* LÍNEAS DE CONEXIÓN Y PROTOCOLOS (MINIMALISTAS)           */}
+            {/* ======================================================== */}
+
+            {/* Clientes -> Vercel Edge */}
+            <path d="M 185 230 L 245 230" stroke="#64748B" strokeWidth="1.8" fill="none" markerEnd="url(#min-arrow)" />
+            <rect x="193" y="218" width="44" height="15" rx="3" fill="#F1F5F9" />
+            <text x="197" y="229" fontSize="7.5" fontWeight="bold" fill="#334155">
+              HTTPS
             </text>
 
-            {/* Flecha 2: Vercel Edge -> ASP.NET Core API */}
-            <path
-              d="M 500 280 L 535 280"
-              stroke="#2563EB"
-              strokeWidth="2.2"
-              fill="none"
-              markerEnd="url(#deploy-arrow-blue)"
-            />
-            <rect x="498" y="260" width="50" height="18" rx="4" fill="#EFF6FF" stroke="#93C5FD" strokeWidth="0.8" />
-            <text x="502" y="272" fontSize="7.5" fontWeight="bold" fill="#1D4ED8">
-              REST JSON
+            {/* Vercel Edge -> ASP.NET Core API */}
+            <path d="M 425 230 L 485 230" stroke="#2563EB" strokeWidth="2" fill="none" markerEnd="url(#min-arrow-blue)" />
+            <rect x="432" y="217" width="46" height="16" rx="3" fill="#EFF6FF" stroke="#BFDBFE" strokeWidth="0.8" />
+            <text x="436" y="228" fontSize="7.5" fontWeight="bold" fill="#1D4ED8">
+              REST · JWT
             </text>
 
-            {/* Flecha 3: ASP.NET Core API -> Neon Postgres */}
-            <path
-              d="M 775 180 L 805 180"
-              stroke="#059669"
-              strokeWidth="2.2"
-              fill="none"
-              markerEnd="url(#deploy-arrow-green)"
-            />
-            <rect x="765" y="158" width="52" height="18" rx="4" fill="#ECFDF5" stroke="#6EE7B7" strokeWidth="0.8" />
-            <text x="769" y="170" fontSize="7.5" fontWeight="bold" fill="#047857">
+            {/* ASP.NET Core API -> Neon Postgres */}
+            <path d="M 680 145 L 740 145" stroke="#059669" strokeWidth="2" fill="none" markerEnd="url(#min-arrow-green)" />
+            <rect x="688" y="133" width="45" height="16" rx="3" fill="#ECFDF5" stroke="#A7F3D0" strokeWidth="0.8" />
+            <text x="692" y="144" fontSize="7.5" fontWeight="bold" fill="#047857">
               TCP 5432
             </text>
 
-            {/* Flecha 4: ASP.NET Core API -> Cloudflare R2 */}
-            <path
-              d="M 775 390 L 805 390"
-              stroke="#D97706"
-              strokeWidth="2.2"
-              fill="none"
-              markerEnd="url(#deploy-arrow-orange)"
-            />
-            <rect x="765" y="370" width="52" height="18" rx="4" fill="#FFFBEB" stroke="#FCD34D" strokeWidth="0.8" />
-            <text x="769" y="382" fontSize="7.5" fontWeight="bold" fill="#B45309">
-              S3 HTTPS
+            {/* ASP.NET Core API -> Cloudflare R2 */}
+            <path d="M 680 315 L 740 315" stroke="#EA580C" strokeWidth="2" fill="none" markerEnd="url(#min-arrow-orange)" />
+            <rect x="691" y="303" width="38" height="16" rx="3" fill="#FFF7ED" stroke="#FED7AA" strokeWidth="0.8" />
+            <text x="696" y="314" fontSize="7.5" fontWeight="bold" fill="#C2410C">
+              S3 API
             </text>
 
-            {/* Servicios Externos (Footer del diagrama) */}
-            <g transform="translate(280, 560)">
-              <rect x="0" y="0" width="740" height="30" rx="8" fill="#F1F5F9" stroke="#CBD5E1" strokeWidth="1" />
-              <text x="14" y="19" fontSize="10" fontWeight="bold" fill="#334155">
-                INTEGRACIONES Y SERVICIOS EXTERNOS:
-              </text>
-              <text x="240" y="19" fontSize="9.5" fill="#475569">
-                • Meta WhatsApp Cloud API (Graph API v20.0 para notificaciones)
-              </text>
-              <text x="550" y="19" fontSize="9.5" fill="#475569">
-                • Bancolombia / QR Nequi (Comprobantes)
-              </text>
-            </g>
+            {/* ASP.NET Core API -> WhatsApp API */}
+            <path d="M 582 360 L 582 385" stroke="#16A34A" strokeWidth="1.5" strokeDasharray="3 3" fill="none" />
+
           </svg>
         </div>
       </div>
 
-      {/* Tarjetas explicativas de decisiones de arquitectura */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
-        <div className="rounded-xl border border-neutral-200 bg-white p-4 shadow-2xs">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-blue-600" />
-            <h3 className="text-xs font-bold uppercase tracking-wider text-neutral-800">
-              Frontend en Vercel Edge
-            </h3>
-          </div>
-          <p className="text-xs text-neutral-600 leading-relaxed">
-            Elegimos montar la SPA de React 18 en Vercel porque sus servidores perimetrales responden en menos de 30 ms en Colombia. Toda la navegación entre inmuebles, contratos y cobros se hace del lado del cliente sin recargar la página.
-          </p>
+      {/* Resumen minimalista en 4 pills */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
+        <div className="rounded-xl border border-neutral-200 bg-white p-3 text-center shadow-2xs">
+          <span className="block text-xs font-bold text-neutral-900">Vercel Edge</span>
+          <span className="text-[11px] text-neutral-500">Frontend SPA & CDN</span>
         </div>
-
-        <div className="rounded-xl border border-neutral-200 bg-white p-4 shadow-2xs">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-purple-600" />
-            <h3 className="text-xs font-bold uppercase tracking-wider text-neutral-800">
-              Backend ASP.NET Core 10
-            </h3>
-          </div>
-          <p className="text-xs text-neutral-600 leading-relaxed">
-            La lógica de liquidación bajo Ley 820, los reajustes de canon y la generación de recibos oficiales la procesamos en C# con .NET 10. Su tipado estricto y el motor QuestPDF permiten generar documentos legales en menos de 85 milisegundos sin consumir memoria excesiva.
-          </p>
+        <div className="rounded-xl border border-neutral-200 bg-white p-3 text-center shadow-2xs">
+          <span className="block text-xs font-bold text-neutral-900">.NET 10 API</span>
+          <span className="text-[11px] text-neutral-500">C# Core & QuestPDF</span>
         </div>
-
-        <div className="rounded-xl border border-neutral-200 bg-white p-4 shadow-2xs">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-600" />
-            <h3 className="text-xs font-bold uppercase tracking-wider text-neutral-800">
-              Neon Postgres & Cloudflare R2
-            </h3>
-          </div>
-          <p className="text-xs text-neutral-600 leading-relaxed">
-            Usamos Neon porque escala a cero cuando no hay tráfico (costo cero en reposo) y mantiene la integridad relacional de 13 tablas con pooler PgBouncer. Los archivos pesados (fotos de consignaciones y PDFs) van a Cloudflare R2 con URLs prefirmadas de 15 minutos sin costos por descarga.
-          </p>
+        <div className="rounded-xl border border-neutral-200 bg-white p-3 text-center shadow-2xs">
+          <span className="block text-xs font-bold text-neutral-900">Neon Postgres</span>
+          <span className="text-[11px] text-neutral-500">Serverless DaaS</span>
+        </div>
+        <div className="rounded-xl border border-neutral-200 bg-white p-3 text-center shadow-2xs">
+          <span className="block text-xs font-bold text-neutral-900">Cloudflare R2</span>
+          <span className="text-[11px] text-neutral-500">S3 Zero-Egress Vault</span>
         </div>
       </div>
     </div>
