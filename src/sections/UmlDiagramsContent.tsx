@@ -2,6 +2,126 @@ import { useState, useEffect } from 'react';
 import { System3dConstellation } from '@/components/organisms/System3dConstellation';
 import { USE_CASE_DOCS, type UmlDocItem } from '@/data/useCaseDocsData';
 
+// Iconos vectoriales limpios (reemplazo de emojis y stickers)
+function LayersIcon({ className = 'w-3.5 h-3.5' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polygon points="12 2 2 7 12 12 22 7 12 2" />
+      <polyline points="2 17 12 22 22 17" />
+      <polyline points="2 12 12 17 22 12" />
+    </svg>
+  );
+}
+
+function OrbitIcon({ className = 'w-3.5 h-3.5' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="3" />
+      <path d="M3 12a9 9 0 0 1 18 0" />
+      <path d="M3 12a9 9 0 0 0 18 0" />
+      <path d="M5.5 5.5l13 13" />
+    </svg>
+  );
+}
+
+function ClipboardListIcon({ className = 'w-4 h-4' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+      <path d="M9 12h6" />
+      <path d="M9 16h6" />
+    </svg>
+  );
+}
+
+function CheckSquareIcon({ className = 'w-4 h-4' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="9 11 12 14 22 4" />
+      <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+    </svg>
+  );
+}
+
+function CheckIcon({ className = 'w-3.5 h-3.5' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
+  );
+}
+
+function CheckCircleIcon({ className = 'w-3.5 h-3.5' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+      <polyline points="22 4 12 14.01 9 11.01" />
+    </svg>
+  );
+}
+
+function AlertTriangleIcon({ className = 'w-3.5 h-3.5' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+      <line x1="12" y1="9" x2="12" y2="13" />
+      <line x1="12" y1="17" x2="12.01" y2="17" />
+    </svg>
+  );
+}
+
+function LockIcon({ className = 'w-3.5 h-3.5' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+    </svg>
+  );
+}
+
+function ExpandIcon({ className = 'w-3.5 h-3.5' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="15 3 21 3 21 9" />
+      <polyline points="9 21 3 21 3 15" />
+      <line x1="21" y1="3" x2="14" y2="10" />
+      <line x1="3" y1="21" x2="10" y2="14" />
+    </svg>
+  );
+}
+
+function FileTextIcon({ className = 'w-3.5 h-3.5' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+      <polyline points="14 2 14 8 20 8" />
+      <line x1="16" y1="13" x2="8" y2="13" />
+      <line x1="16" y1="17" x2="8" y2="17" />
+      <polyline points="10 9 9 9 8 9" />
+    </svg>
+  );
+}
+
+function InfoIcon({ className = 'w-4 h-4' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10" />
+      <line x1="12" y1="16" x2="12" y2="12" />
+      <line x1="12" y1="8" x2="12.01" y2="8" />
+    </svg>
+  );
+}
+
+function CloseIcon({ className = 'w-4 h-4' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18" />
+      <line x1="6" y1="6" x2="18" y2="18" />
+    </svg>
+  );
+}
+
 interface UmlDiagramsContentProps {
   selectedCaseId?: string;
   onSelectCaseId?: (id: string) => void;
@@ -52,11 +172,11 @@ export function UmlDiagramsContent({
         </p>
 
         <h1 className="mt-2 text-3xl sm:text-4xl font-bold leading-tight tracking-tight text-neutral-900">
-          Casos de Uso del Sistema Faroo
+          Casos de Uso de Faroo
         </h1>
 
         <p className="mt-2.5 max-w-3xl text-sm sm:text-base leading-relaxed text-neutral-600">
-          Aquí modelamos las 16 funcionalidades del software Faroo tal como están construidas en el backend y frontend. Incluye el diagrama general con la interacción de los 4 actores y la ficha técnica formal (plantilla 6.3) para cada caso de uso: diagrama UML individual (palito y bolita con estándar UML 2.5), diagrama de flujo con bifurcaciones de decisión reales (camino de éxito vs excepciones), y la captura real del prototipo en funcionamiento.
+          En esta entrega dejamos los 16 casos de uso del sistema. Cada uno tiene su diagrama de caso de uso (actores y óvalos), el diagrama de flujo con las decisiones y qué pasa si algo falla, y la captura de pantalla de la interfaz corriendo en local.
         </p>
       </section>
 
@@ -65,10 +185,10 @@ export function UmlDiagramsContent({
         <div className="border-b border-neutral-200 pb-3 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-3">
           <div>
             <h2 className="text-xl sm:text-2xl font-bold text-neutral-900">
-              Diagrama General de Casos de Uso (UML)
+              Diagrama General de Casos de Uso
             </h2>
             <p className="mt-1 text-sm text-neutral-600">
-              Vista consolidada: interacción entre los 4 actores del sistema y los 16 casos de uso agrupados en sus 5 paquetes de negocio.
+              Muestra la relación entre los 4 roles (propietario, inquilino, administrador y soporte) y los 16 casos de uso organizados por módulo.
             </p>
           </div>
 
@@ -84,7 +204,8 @@ export function UmlDiagramsContent({
                     : 'text-neutral-600 hover:text-neutral-900'
                 }`}
               >
-                <span>📐 Vista 2D UML</span>
+                <LayersIcon className="w-3.5 h-3.5" />
+                <span>Vista 2D</span>
               </button>
               <button
                 type="button"
@@ -95,7 +216,8 @@ export function UmlDiagramsContent({
                     : 'text-neutral-600 hover:text-neutral-900'
                 }`}
               >
-                <span>🪐 Vista 3D (Three.js)</span>
+                <OrbitIcon className="w-3.5 h-3.5" />
+                <span>Constelación 3D</span>
               </button>
             </div>
 
@@ -416,7 +538,7 @@ export function UmlDiagramsContent({
               Documentación del Caso de Uso
             </h2>
             <p className="text-sm text-neutral-600 mt-1 max-w-3xl leading-relaxed">
-              Ficha técnica descriptiva, diagrama de casos de uso (UML 2.5), diagrama de flujo con bifurcaciones de decisión reales (camino de éxito vs excepciones), y captura de pantalla real del prototipo en funcionamiento.
+              Información de cada caso de uso: diagrama UML, diagrama de flujo del proceso y captura de la pantalla tomada del proyecto en local.
             </p>
           </div>
 
@@ -495,8 +617,9 @@ export function UmlDiagramsContent({
           {/* Precondiciones y Postcondiciones */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border-b border-neutral-200 pb-6">
             <div className="rounded-xl border border-neutral-200 bg-neutral-50/50 p-4">
-              <span className="text-xs font-bold uppercase tracking-wider text-neutral-500 block mb-2">
-                📋 Precondiciones (Requisitos previos):
+              <span className="text-xs font-bold uppercase tracking-wider text-neutral-500 flex items-center gap-1.5 mb-2">
+                <ClipboardListIcon className="w-4 h-4 text-neutral-600" />
+                <span>Precondiciones:</span>
               </span>
               <ul className="space-y-2 text-sm text-neutral-700">
                 {currentDoc.preconditions.map((pre, idx) => (
@@ -509,13 +632,14 @@ export function UmlDiagramsContent({
             </div>
 
             <div className="rounded-xl border border-neutral-200 bg-neutral-50/50 p-4">
-              <span className="text-xs font-bold uppercase tracking-wider text-neutral-500 block mb-2">
-                🏁 Postcondiciones (Resultado final en el sistema):
+              <span className="text-xs font-bold uppercase tracking-wider text-neutral-500 flex items-center gap-1.5 mb-2">
+                <CheckSquareIcon className="w-4 h-4 text-neutral-600" />
+                <span>Postcondiciones:</span>
               </span>
               <ul className="space-y-2 text-sm text-neutral-700">
                 {currentDoc.postconditions.map((post, idx) => (
                   <li key={idx} className="flex items-start gap-2">
-                    <span className="text-emerald-600 font-bold">✓</span>
+                    <CheckIcon className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
                     <span>{post}</span>
                   </li>
                 ))}
@@ -528,14 +652,14 @@ export function UmlDiagramsContent({
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-neutral-500 block">
-                  1. Diagrama de Caso de Uso (Notación Formal UML 2.5 · Palito y Bolita):
+                  1. Diagrama de Caso de Uso (UML)
                 </span>
                 <p className="text-xs text-neutral-500 mt-0.5">
-                  Estándar OMG UML 2.5: actor primario fuera del límite, sistema delimitado, óvalo del caso de uso, asociaciones no direccionales, relaciones «include» / «extend» y actor secundario externo.
+                  Muestra el actor principal, el límite del sistema, el caso de uso y las relaciones con otros casos o servicios externos.
                 </p>
               </div>
               <span className="text-[11px] font-mono text-neutral-600 bg-neutral-100 border border-neutral-200 px-2.5 py-0.5 rounded-md self-start sm:self-auto font-semibold">
-                Norma OMG UML 2.5
+                UML 2.5
               </span>
             </div>
 
@@ -710,7 +834,8 @@ export function UmlDiagramsContent({
                       ) : (
                         <g>
                           <rect x="-32" y="-18" width="64" height="36" rx="6" fill="#FFFBEB" stroke="#D97706" strokeWidth="1.8" />
-                          <text x="0" y="4" textAnchor="middle" fontSize="14">⚙️</text>
+                          <circle cx="0" cy="0" r="7" fill="#FEF3C7" stroke="#D97706" strokeWidth="1.5" />
+                          <circle cx="0" cy="0" r="2.5" fill="#92400E" />
                           <text x="0" y="32" textAnchor="middle" fontSize="10.5" fontWeight="bold" fill="#92400E">
                             {currentDoc.uml.secondaryActor}
                           </text>
@@ -727,8 +852,9 @@ export function UmlDiagramsContent({
 
               {/* Nota de negocio formal UML (Dog-ear note) */}
               <div className="mt-3 pt-3 border-t border-neutral-200 flex items-start gap-2.5 text-xs text-neutral-700 bg-neutral-50/70 p-3 rounded-xl border border-neutral-200">
-                <span className="font-bold text-neutral-900 shrink-0 flex items-center gap-1">
-                  <span>📄</span> Nota UML (Regla de Negocio):
+                <span className="font-bold text-neutral-900 shrink-0 flex items-center gap-1.5">
+                  <FileTextIcon className="w-3.5 h-3.5 text-neutral-600" />
+                  <span>Regla de negocio:</span>
                 </span>
                 <span className="leading-relaxed">{currentDoc.uml.businessNote}</span>
               </div>
@@ -1050,9 +1176,10 @@ export function UmlDiagramsContent({
               {/* Explicación de la ingeniería del flujo */}
               <div className="mt-3 pt-3 border-t border-neutral-200 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                 <div className="rounded-xl border border-emerald-200 bg-emerald-50/60 p-3">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="font-bold text-emerald-800">✓ Camino Feliz [SÍ]:</span>
-                    <span className="font-mono text-[11px] font-bold text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded">
+                  <div className="flex items-center gap-1.5 mb-1">
+                    <CheckCircleIcon className="w-3.5 h-3.5 text-emerald-600" />
+                    <span className="font-bold text-emerald-800">Si es válido [SÍ]:</span>
+                    <span className="font-mono text-[11px] font-bold text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded ml-auto">
                       {currentDoc.flow.yesPath.responseCode}
                     </span>
                   </div>
@@ -1062,9 +1189,10 @@ export function UmlDiagramsContent({
                 </div>
 
                 <div className="rounded-xl border border-amber-200 bg-amber-50/60 p-3">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="font-bold text-amber-800">⚠️ Excepción y Bucle [NO]:</span>
-                    <span className="font-mono text-[11px] font-bold text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded">
+                  <div className="flex items-center gap-1.5 mb-1">
+                    <AlertTriangleIcon className="w-3.5 h-3.5 text-amber-600" />
+                    <span className="font-bold text-amber-800">Si hay error [NO]:</span>
+                    <span className="font-mono text-[11px] font-bold text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded ml-auto">
                       {currentDoc.flow.noPath.responseCode}
                     </span>
                   </div>
@@ -1081,14 +1209,14 @@ export function UmlDiagramsContent({
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-neutral-500 block">
-                  3. Captura del Prototipo en Funcionamiento (Pantalla Real):
+                  3. Captura de la Pantalla
                 </span>
                 <p className="text-xs text-neutral-500 mt-0.5">
-                  Interfaz real de la aplicación web Faroo para {currentDoc.id.toUpperCase()}. Haz clic en la imagen para ampliar en pantalla completa.
+                  Captura de la interfaz tomada directamente del proyecto corriendo en local. Clic para ampliar.
                 </p>
               </div>
-              <span className="text-[11px] font-mono text-blue-700 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded-md self-start sm:self-auto font-semibold">
-                Captura Verificada 1280x820
+              <span className="text-[11px] font-mono text-blue-700 bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-md self-start sm:self-auto font-semibold">
+                Captura 1280x820
               </span>
             </div>
 
@@ -1103,21 +1231,21 @@ export function UmlDiagramsContent({
                     <span className="h-3 w-3 rounded-full bg-emerald-400" />
                   </div>
                   <span className="text-xs font-semibold text-neutral-700 ml-2 hidden sm:inline">
-                    Faroo Web Client
+                    Faroo Web
                   </span>
                 </div>
 
                 <div className="flex h-7 w-full max-w-md items-center justify-center rounded-lg border border-neutral-200 bg-white px-3 font-mono text-xs text-neutral-600 truncate shadow-2xs">
-                  <span className="text-emerald-600 mr-1.5">🔒</span>
+                  <LockIcon className="w-3.5 h-3.5 text-emerald-600 mr-1.5 shrink-0" />
                   <span className="truncate">{currentDoc.prototype.url}</span>
                 </div>
 
                 <button
                   type="button"
                   onClick={() => setLightboxOpen(true)}
-                  className="inline-flex items-center gap-1 text-xs font-semibold text-neutral-700 bg-white border border-neutral-300 hover:border-neutral-900 px-2.5 py-1 rounded-md transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-700 bg-white border border-neutral-300 hover:border-neutral-900 px-2.5 py-1 rounded-md transition-colors cursor-pointer"
                 >
-                  <span>🔍</span>
+                  <ExpandIcon className="w-3.5 h-3.5 text-neutral-600" />
                   <span className="hidden sm:inline">Ampliar</span>
                 </button>
               </div>
@@ -1131,8 +1259,9 @@ export function UmlDiagramsContent({
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-neutral-900/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
-                  <span className="rounded-xl bg-neutral-900/80 backdrop-blur-xs text-white px-4 py-2 text-xs font-semibold shadow-lg">
-                    🔍 Clic para ampliar a tamaño completo
+                  <span className="inline-flex items-center gap-1.5 rounded-xl bg-neutral-900/80 backdrop-blur-xs text-white px-4 py-2 text-xs font-semibold shadow-lg">
+                    <ExpandIcon className="w-3.5 h-3.5 text-white" />
+                    <span>Clic para ampliar</span>
                   </span>
                 </div>
               </div>
@@ -1140,10 +1269,10 @@ export function UmlDiagramsContent({
               {/* EXPLICACIÓN ESTUDIANTIL Y CONTROLES CLAVE */}
               <div className="p-5 sm:p-6 bg-neutral-50/70 border-t border-neutral-200 space-y-4">
                 <div className="flex items-start gap-3 bg-white rounded-xl p-4 border border-neutral-200">
-                  <span className="text-xl shrink-0 mt-0.5">💡</span>
+                  <InfoIcon className="w-4 h-4 text-neutral-600 shrink-0 mt-0.5" />
                   <div>
                     <h5 className="text-xs font-bold uppercase tracking-wider text-neutral-900">
-                      Cómo funciona esta pantalla (Nota de David & Nikoll):
+                      Notas sobre la pantalla (David y Nikoll):
                     </h5>
                     <p className="mt-1 text-xs sm:text-sm leading-relaxed text-neutral-700">
                       {currentDoc.prototype.studentNotes}
@@ -1154,7 +1283,7 @@ export function UmlDiagramsContent({
                 {/* Píldoras de controles clave de la pantalla */}
                 <div>
                   <span className="text-[11px] font-bold uppercase tracking-wider text-neutral-400 block mb-2">
-                    Elementos Clave de la Interfaz:
+                    Elementos de la pantalla:
                   </span>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     {currentDoc.prototype.keyElements.map((elem, idx) => (
@@ -1229,9 +1358,9 @@ export function UmlDiagramsContent({
               <button
                 type="button"
                 onClick={() => setLightboxOpen(false)}
-                className="text-neutral-500 hover:text-neutral-900 text-lg font-bold px-2 py-0.5 rounded cursor-pointer"
+                className="text-neutral-500 hover:text-neutral-900 p-1 rounded cursor-pointer"
               >
-                ✕
+                <CloseIcon className="w-5 h-5 text-neutral-600 hover:text-neutral-900" />
               </button>
             </div>
             <div className="overflow-auto max-h-[calc(90vh-60px)] p-2 bg-neutral-900 flex justify-center">

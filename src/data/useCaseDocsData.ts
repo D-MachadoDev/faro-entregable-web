@@ -85,7 +85,7 @@ export const USE_CASE_DOCS: UmlDocItem[] = [
       },
     },
     prototype: {
-      url: 'https://app.faroo.co/properties/new',
+      url: 'http://localhost:5173/properties/new',
       title: 'Módulo de Inmuebles: Formulario de Alta de Propiedad',
       image: '/screenshots/cu-01.png',
       studentNotes:
@@ -147,7 +147,7 @@ export const USE_CASE_DOCS: UmlDocItem[] = [
       },
     },
     prototype: {
-      url: 'https://app.faroo.co/properties',
+      url: 'http://localhost:5173/properties',
       title: 'Catálogo de Inmuebles: Listado General con Filtros',
       image: '/screenshots/cu-02.png',
       studentNotes:
@@ -207,7 +207,7 @@ export const USE_CASE_DOCS: UmlDocItem[] = [
       },
     },
     prototype: {
-      url: 'https://app.faroo.co/properties/inm-002',
+      url: 'http://localhost:5173/properties/inm-002',
       title: 'Ficha Técnica: Expediente de la Propiedad e Historial',
       image: '/screenshots/cu-03.png',
       studentNotes:
@@ -269,7 +269,7 @@ export const USE_CASE_DOCS: UmlDocItem[] = [
       },
     },
     prototype: {
-      url: 'https://app.faroo.co/tenants/new',
+      url: 'http://localhost:5173/tenants/new',
       title: 'Directorio de Inquilinos: Formulario de Registro',
       image: '/screenshots/cu-04.png',
       studentNotes:
@@ -331,7 +331,7 @@ export const USE_CASE_DOCS: UmlDocItem[] = [
       },
     },
     prototype: {
-      url: 'https://app.faroo.co/contracts/new/guarantor',
+      url: 'http://localhost:5173/contracts/new/guarantor',
       title: 'Contratos: Asignación de Fiador y Codeudor Solidario',
       image: '/screenshots/cu-05.png',
       studentNotes:
@@ -395,7 +395,7 @@ export const USE_CASE_DOCS: UmlDocItem[] = [
       },
     },
     prototype: {
-      url: 'https://app.faroo.co/contracts/new',
+      url: 'http://localhost:5173/contracts/new',
       title: 'Módulo de Contratos: Asistente de Radicación y Día de Pago',
       image: '/screenshots/cu-06.png',
       studentNotes:
@@ -456,7 +456,7 @@ export const USE_CASE_DOCS: UmlDocItem[] = [
       },
     },
     prototype: {
-      url: 'https://app.faroo.co/contracts/ctr-089/risk',
+      url: 'http://localhost:5173/contracts/ctr-089/risk',
       title: 'Módulo de Riesgo: Tablero de Scoring Contractual',
       image: '/screenshots/cu-07.png',
       studentNotes:
@@ -518,7 +518,7 @@ export const USE_CASE_DOCS: UmlDocItem[] = [
       },
     },
     prototype: {
-      url: 'https://app.faroo.co/charges/issue',
+      url: 'http://localhost:5173/charges/issue',
       title: 'Módulo de Cobros: Emisión Mensual de Facturación',
       image: '/screenshots/cu-08.png',
       studentNotes:
@@ -578,7 +578,7 @@ export const USE_CASE_DOCS: UmlDocItem[] = [
       },
     },
     prototype: {
-      url: 'https://app.faroo.co/charges/summary',
+      url: 'http://localhost:5173/charges/summary',
       title: 'Módulo de Cobros: Tablero de Resumen Financiero',
       image: '/screenshots/cu-09.png',
       studentNotes:
@@ -641,7 +641,7 @@ export const USE_CASE_DOCS: UmlDocItem[] = [
       },
     },
     prototype: {
-      url: 'https://app.faroo.co/portal/pagos/subir',
+      url: 'http://localhost:5173/portal/pagos/subir',
       title: 'Portal del Inquilino: Carga de Comprobante de Pago',
       image: '/screenshots/cu-10.png',
       studentNotes:
@@ -704,7 +704,7 @@ export const USE_CASE_DOCS: UmlDocItem[] = [
       },
     },
     prototype: {
-      url: 'https://app.faroo.co/charges/reconciliation',
+      url: 'http://localhost:5173/charges/reconciliation',
       title: 'Panel de Administrador: Vista de Conciliación de Pagos',
       image: '/screenshots/cu-11.png',
       studentNotes:
@@ -765,7 +765,7 @@ export const USE_CASE_DOCS: UmlDocItem[] = [
       },
     },
     prototype: {
-      url: 'https://app.faroo.co/receipts/rec-2026-0891',
+      url: 'http://localhost:5173/receipts/rec-2026-0891',
       title: 'Documentos: Recibo Oficial de Arrendamiento en PDF',
       image: '/screenshots/cu-12.png',
       studentNotes:
@@ -825,7 +825,7 @@ export const USE_CASE_DOCS: UmlDocItem[] = [
       },
     },
     prototype: {
-      url: 'https://app.faroo.co/charges/traffic-light',
+      url: 'http://localhost:5173/charges/traffic-light',
       title: 'Control de Cartera: Semáforo Visual de Morosidad',
       image: '/screenshots/cu-13.png',
       studentNotes:
@@ -887,7 +887,7 @@ export const USE_CASE_DOCS: UmlDocItem[] = [
       },
     },
     prototype: {
-      url: 'https://app.faroo.co/charges/whatsapp-reminder',
+      url: 'http://localhost:5173/charges/whatsapp-reminder',
       title: 'Alertas: Disparo de Recordatorio Amable por WhatsApp',
       image: '/screenshots/cu-14.png',
       studentNotes:
@@ -949,7 +949,7 @@ export const USE_CASE_DOCS: UmlDocItem[] = [
       },
     },
     prototype: {
-      url: 'https://app.faroo.co/tenants/inq-001/edit-contact',
+      url: 'http://localhost:5173/tenants/inq-001/edit-contact',
       title: 'Directorio: Actualización de Teléfono y Datos de Contacto',
       image: '/screenshots/cu-15.png',
       studentNotes:
@@ -1011,7 +1011,7 @@ export const USE_CASE_DOCS: UmlDocItem[] = [
       },
     },
     prototype: {
-      url: 'https://app.faroo.co/support/reject-payment',
+      url: 'http://localhost:5173/support/reject-payment',
       title: 'Módulo de Soporte: Devolución de Comprobante con Causal',
       image: '/screenshots/cu-16.png',
       studentNotes:

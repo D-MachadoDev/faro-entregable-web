@@ -339,9 +339,24 @@ export function System3dConstellation({
         <button
           type="button"
           onClick={() => setIsRotating((prev) => !prev)}
-          className="rounded-full border border-slate-700 bg-slate-800/80 px-3 py-1 text-xs text-slate-300 backdrop-blur-md transition-colors hover:border-slate-500 hover:text-white"
+          className="rounded-full border border-slate-700 bg-slate-800/80 px-3 py-1 text-xs text-slate-300 backdrop-blur-md transition-colors hover:border-slate-500 hover:text-white flex items-center gap-1.5"
         >
-          {isRotating ? '⏸ Pausar rotación' : '▶ Reanudar rotación'}
+          {isRotating ? (
+            <>
+              <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="6" y="4" width="4" height="16" />
+                <rect x="14" y="4" width="4" height="16" />
+              </svg>
+              <span>Pausar rotación</span>
+            </>
+          ) : (
+            <>
+              <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3" />
+              </svg>
+              <span>Reanudar rotación</span>
+            </>
+          )}
         </button>
       </div>
 
@@ -377,7 +392,7 @@ export function System3dConstellation({
           )}
           {hoveredNode.id.startsWith('cu-') && (
             <div className="mt-2 text-[11px] text-sky-300/80">
-              ⚡ Haz clic para abrir la ficha técnica formal 6.3
+              Clic para ver la ficha del caso de uso
             </div>
           )}
         </div>
