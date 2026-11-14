@@ -523,117 +523,124 @@ export function UmlDiagramsContent({
             </div>
           </div>
 
-          {/* 1. DIAGRAMA UML INDIVIDUAL (PALITO Y BOLITA - UML 2.5) */}
+          {/* 1. DIAGRAMA UML INDIVIDUAL (PALITO Y BOLITA - ESTÁNDAR UML 2.5) */}
           <div className="border-b border-neutral-200 pb-8 space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-neutral-500 block">
-                  1. Diagrama de Caso de Uso (UML Individual · Palito y Bolita):
+                  1. Diagrama de Caso de Uso (Notación Formal UML 2.5 · Palito y Bolita):
                 </span>
                 <p className="text-xs text-neutral-500 mt-0.5">
-                  Estándar UML 2.5: actor primario (palito), límite del software, óvalo central (bolita), relaciones «include» / «extend» y sistemas secundarios.
+                  Estándar OMG UML 2.5: actor primario fuera del límite, sistema delimitado, óvalo del caso de uso, asociaciones no direccionales, relaciones «include» / «extend» y actor secundario externo.
                 </p>
               </div>
-              <span className="text-[11px] font-mono text-neutral-500 bg-neutral-100 border border-neutral-200 px-2 py-0.5 rounded-md self-start sm:self-auto">
-                Notación UML 2.5
+              <span className="text-[11px] font-mono text-neutral-600 bg-neutral-100 border border-neutral-200 px-2.5 py-0.5 rounded-md self-start sm:self-auto font-semibold">
+                Norma OMG UML 2.5
               </span>
             </div>
 
-            <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-5 overflow-x-auto shadow-2xs">
-              <div className="min-w-[700px] flex justify-center py-2">
+            <div className="rounded-2xl border border-neutral-200 bg-white p-5 overflow-x-auto shadow-xs">
+              <div className="min-w-[760px] flex justify-center py-2">
                 <svg
-                  viewBox="0 0 760 250"
-                  className="w-full max-w-[760px] h-auto select-none"
+                  viewBox="0 0 780 270"
+                  className="w-full max-w-[780px] h-auto select-none"
                   style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                 >
                   <defs>
+                    {/* Flecha abierta para relaciones include / extend según UML 2.5 */}
                     <marker
-                      id={`arrow-ind-${currentDoc.id}`}
+                      id={`uml-include-arrow-${currentDoc.id}`}
                       viewBox="0 0 10 10"
-                      refX="8"
+                      refX="7"
                       refY="5"
-                      markerWidth="6"
-                      markerHeight="6"
+                      markerWidth="7"
+                      markerHeight="7"
                       orient="auto-start-reverse"
                     >
-                      <path d="M 0 1 L 9 5 L 0 9 z" fill="#0F172A" />
+                      <path d="M 0 1.5 L 7 5 L 0 8.5" fill="none" stroke="#059669" strokeWidth="1.8" />
                     </marker>
                     <marker
-                      id={`arrow-extend-${currentDoc.id}`}
+                      id={`uml-extend-arrow-${currentDoc.id}`}
                       viewBox="0 0 10 10"
-                      refX="8"
+                      refX="7"
                       refY="5"
-                      markerWidth="6"
-                      markerHeight="6"
+                      markerWidth="7"
+                      markerHeight="7"
                       orient="auto-start-reverse"
                     >
-                      <path d="M 0 1 L 9 5 L 0 9 z" fill="#D97706" />
+                      <path d="M 0 1.5 L 7 5 L 0 8.5" fill="none" stroke="#D97706" strokeWidth="1.8" />
                     </marker>
                   </defs>
 
-                  {/* Límite del sistema Faroo */}
+                  {/* Límite del sistema Faroo (System Boundary) */}
                   <rect
-                    x="170"
+                    x="180"
                     y="18"
                     width="440"
-                    height="214"
-                    rx="14"
-                    fill="#FFFFFF"
+                    height="234"
+                    rx="12"
+                    fill="#F8FAFC"
                     stroke="#475569"
                     strokeWidth="1.75"
                     strokeDasharray="6 4"
                   />
-                  <text x="188" y="40" fontSize="11" fontWeight="bold" fill="#64748B" letterSpacing="0.8">
+                  <text x="196" y="40" fontSize="11" fontWeight="bold" fill="#475569" letterSpacing="0.8">
                     SISTEMA FAROO (Límite del Software: Core Web & Backend)
                   </text>
 
-                  {/* Actor principal (Muñeco de palo nítido) */}
-                  <g transform="translate(85, 125)">
-                    <circle cx="0" cy="-22" r="12" fill={activeColor.light} stroke={activeColor.primary} strokeWidth="2.5" />
-                    <line x1="0" y1="-10" x2="0" y2="20" stroke={activeColor.primary} strokeWidth="2.5" />
-                    <line x1="-18" y1="2" x2="18" y2="2" stroke={activeColor.primary} strokeWidth="2.5" />
-                    <line x1="0" y1="20" x2="-14" y2="44" stroke={activeColor.primary} strokeWidth="2.5" />
-                    <line x1="0" y1="20" x2="14" y2="44" stroke={activeColor.primary} strokeWidth="2.5" />
-                    <text x="0" y="62" textAnchor="middle" fontSize="12" fontWeight="bold" fill={activeColor.dark}>
-                      {currentDoc.uml.primaryActor}
+                  {/* Actor principal (Stickman / Muñeco de palo formal UML) */}
+                  <g transform="translate(90, 135)">
+                    {/* Cabeza */}
+                    <circle cx="0" cy="-26" r="13" fill="#FFFFFF" stroke={activeColor.primary} strokeWidth="2.5" />
+                    {/* Tronco */}
+                    <line x1="0" y1="-13" x2="0" y2="18" stroke={activeColor.primary} strokeWidth="2.5" />
+                    {/* Brazos */}
+                    <line x1="-20" y1="-2" x2="20" y2="-2" stroke={activeColor.primary} strokeWidth="2.5" />
+                    {/* Pierna izquierda */}
+                    <line x1="0" y1="18" x2="-14" y2="44" stroke={activeColor.primary} strokeWidth="2.5" />
+                    {/* Pierna derecha */}
+                    <line x1="0" y1="18" x2="14" y2="44" stroke={activeColor.primary} strokeWidth="2.5" />
+                    {/* Estereotipo y nombre */}
+                    <text x="0" y="60" textAnchor="middle" fontSize="9.5" fill="#64748B" fontWeight="600">
+                      «actor»
                     </text>
-                    <text x="0" y="74" textAnchor="middle" fontSize="9.5" fill="#64748B">
-                      (Actor Primario)
+                    <text x="0" y="74" textAnchor="middle" fontSize="12" fontWeight="bold" fill={activeColor.dark}>
+                      {currentDoc.uml.primaryActor}
                     </text>
                   </g>
 
-                  {/* Línea de asociación entre actor y óvalo principal */}
-                  <line x1="110" y1="125" x2="225" y2="125" stroke={activeColor.primary} strokeWidth="2" />
+                  {/* Asociación UML sólida (SIN flechas entre actor y caso de uso, conforme al estándar UML) */}
+                  <line x1="115" y1="135" x2="230" y2="135" stroke={activeColor.primary} strokeWidth="2" />
 
-                  {/* Óvalo central de caso de uso */}
-                  <g transform="translate(320, 125)">
-                    <ellipse cx="0" cy="0" rx="98" ry="26" fill={activeColor.light} stroke={activeColor.primary} strokeWidth="2.5" />
+                  {/* Óvalo central de caso de uso (UML Use Case Ellipse) */}
+                  <g transform="translate(325, 135)">
+                    <ellipse cx="0" cy="0" rx="95" ry="27" fill={activeColor.light} stroke={activeColor.primary} strokeWidth="2.5" />
                     <text x="0" y="4" textAnchor="middle" fontSize="11" fontWeight="bold" fill={activeColor.dark}>
                       {currentDoc.uml.mainOval}
                     </text>
                   </g>
 
-                  {/* Relación Include (si existe) */}
+                  {/* Relación Include (si existe): Caso Base apunta al Caso Incluido con flecha abierta discontinua */}
                   {currentDoc.uml.includes && currentDoc.uml.includes.length > 0 && (
                     <g>
-                      <g transform="translate(515, 75)">
-                        <ellipse cx="0" cy="0" rx="88" ry="22" fill="#F8FAFC" stroke="#059669" strokeWidth="1.6" strokeDasharray="4 3" />
+                      <g transform="translate(520, 80)">
+                        <ellipse cx="0" cy="0" rx="88" ry="22" fill="#FFFFFF" stroke="#059669" strokeWidth="1.8" strokeDasharray="5 3" />
                         <text x="0" y="4" textAnchor="middle" fontSize="9.5" fontWeight="600" fill="#065F46">
                           {currentDoc.uml.includes[0]}
                         </text>
                       </g>
                       <line
-                        x1="395"
-                        y1="105"
-                        x2="435"
-                        y2="88"
+                        x1="398"
+                        y1="112"
+                        x2="438"
+                        y2="92"
                         stroke="#059669"
-                        strokeWidth="1.5"
-                        strokeDasharray="4 3"
-                        markerEnd={`url(#arrow-ind-${currentDoc.id})`}
+                        strokeWidth="1.6"
+                        strokeDasharray="5 3"
+                        markerEnd={`url(#uml-include-arrow-${currentDoc.id})`}
                       />
-                      <g transform="translate(415, 88)">
-                        <rect x="-24" y="-8" width="48" height="16" rx="8" fill="#FFFFFF" stroke="#059669" strokeWidth="1" />
+                      <g transform="translate(418, 92)">
+                        <rect x="-24" y="-8" width="48" height="16" rx="4" fill="#FFFFFF" stroke="#059669" strokeWidth="1" />
                         <text x="0" y="3.5" textAnchor="middle" fontSize="9" fontWeight="bold" fill="#047857">
                           «include»
                         </text>
@@ -641,27 +648,27 @@ export function UmlDiagramsContent({
                     </g>
                   )}
 
-                  {/* Relación Extend (si existe) */}
+                  {/* Relación Extend (si existe): Caso que Extiende apunta al Caso Base con flecha abierta discontinua */}
                   {currentDoc.uml.extends && currentDoc.uml.extends.length > 0 && (
                     <g>
-                      <g transform="translate(515, 175)">
-                        <ellipse cx="0" cy="0" rx="88" ry="22" fill="#FFFBEB" stroke="#D97706" strokeWidth="1.6" strokeDasharray="4 3" />
+                      <g transform="translate(520, 190)">
+                        <ellipse cx="0" cy="0" rx="88" ry="22" fill="#FFFBEB" stroke="#D97706" strokeWidth="1.8" strokeDasharray="5 3" />
                         <text x="0" y="4" textAnchor="middle" fontSize="9.5" fontWeight="600" fill="#92400E">
                           {currentDoc.uml.extends[0].name}
                         </text>
                       </g>
                       <line
-                        x1="435"
-                        y1="162"
-                        x2="395"
-                        y2="145"
+                        x1="438"
+                        y1="174"
+                        x2="398"
+                        y2="154"
                         stroke="#D97706"
-                        strokeWidth="1.5"
-                        strokeDasharray="4 3"
-                        markerEnd={`url(#arrow-extend-${currentDoc.id})`}
+                        strokeWidth="1.6"
+                        strokeDasharray="5 3"
+                        markerEnd={`url(#uml-extend-arrow-${currentDoc.id})`}
                       />
-                      <g transform="translate(415, 162)">
-                        <rect x="-24" y="-8" width="48" height="16" rx="8" fill="#FFFFFF" stroke="#D97706" strokeWidth="1" />
+                      <g transform="translate(418, 174)">
+                        <rect x="-24" y="-8" width="48" height="16" rx="4" fill="#FFFFFF" stroke="#D97706" strokeWidth="1" />
                         <text x="0" y="3.5" textAnchor="middle" fontSize="9" fontWeight="bold" fill="#B45309">
                           «extend»
                         </text>
@@ -669,40 +676,40 @@ export function UmlDiagramsContent({
                     </g>
                   )}
 
-                  {/* Actor secundario / Sistema externo a la derecha */}
+                  {/* Actor secundario / Sistema externo a la derecha del límite */}
                   {currentDoc.uml.secondaryActor && (
-                    <g transform="translate(680, 125)">
+                    <g transform="translate(700, 135)">
                       {currentDoc.uml.secondaryType === 'db' ? (
                         <g>
-                          <rect x="-28" y="-22" width="56" height="44" rx="8" fill="#F1F5F9" stroke="#475569" strokeWidth="2" />
-                          <ellipse cx="0" cy="-14" rx="20" ry="6" fill="#E2E8F0" stroke="#475569" strokeWidth="1.5" />
-                          <line x1="-20" y1="-6" x2="-20" y2="12" stroke="#475569" strokeWidth="1.5" />
-                          <line x1="20" y1="-6" x2="20" y2="12" stroke="#475569" strokeWidth="1.5" />
-                          <path d="M -20 12 A 20 6 0 0 0 20 12" fill="none" stroke="#475569" strokeWidth="1.5" />
+                          <rect x="-30" y="-22" width="60" height="44" rx="6" fill="#F1F5F9" stroke="#334155" strokeWidth="2" />
+                          <ellipse cx="0" cy="-14" rx="20" ry="6" fill="#E2E8F0" stroke="#334155" strokeWidth="1.5" />
+                          <line x1="-20" y1="-6" x2="-20" y2="12" stroke="#334155" strokeWidth="1.5" />
+                          <line x1="20" y1="-6" x2="20" y2="12" stroke="#334155" strokeWidth="1.5" />
+                          <path d="M -20 12 A 20 6 0 0 0 20 12" fill="none" stroke="#334155" strokeWidth="1.5" />
                           <text x="0" y="34" textAnchor="middle" fontSize="10.5" fontWeight="bold" fill="#334155">
                             {currentDoc.uml.secondaryActor}
                           </text>
-                          <text x="0" y="45" textAnchor="middle" fontSize="9" fill="#64748B">
+                          <text x="0" y="46" textAnchor="middle" fontSize="9" fill="#64748B">
                             «database»
                           </text>
                         </g>
                       ) : currentDoc.uml.secondaryType === 'user' ? (
                         <g>
-                          <circle cx="0" cy="-18" r="10" fill="#ECFDF5" stroke="#059669" strokeWidth="2" />
-                          <line x1="0" y1="-8" x2="0" y2="16" stroke="#059669" strokeWidth="2" />
-                          <line x1="-14" y1="2" x2="14" y2="2" stroke="#059669" strokeWidth="2" />
-                          <line x1="0" y1="16" x2="-10" y2="34" stroke="#059669" strokeWidth="2" />
-                          <line x1="0" y1="16" x2="10" y2="34" stroke="#059669" strokeWidth="2" />
-                          <text x="0" y="48" textAnchor="middle" fontSize="11" fontWeight="bold" fill="#047857">
+                          <circle cx="0" cy="-20" r="11" fill="#FFFFFF" stroke="#059669" strokeWidth="2" />
+                          <line x1="0" y1="-9" x2="0" y2="16" stroke="#059669" strokeWidth="2" />
+                          <line x1="-15" y1="2" x2="15" y2="2" stroke="#059669" strokeWidth="2" />
+                          <line x1="0" y1="16" x2="-11" y2="36" stroke="#059669" strokeWidth="2" />
+                          <line x1="0" y1="16" x2="11" y2="36" stroke="#059669" strokeWidth="2" />
+                          <text x="0" y="50" textAnchor="middle" fontSize="11" fontWeight="bold" fill="#047857">
                             {currentDoc.uml.secondaryActor}
                           </text>
-                          <text x="0" y="59" textAnchor="middle" fontSize="9" fill="#10B981">
-                            (Secundario)
+                          <text x="0" y="61" textAnchor="middle" fontSize="9" fill="#10B981">
+                            «actor secundario»
                           </text>
                         </g>
                       ) : (
                         <g>
-                          <rect x="-30" y="-18" width="60" height="36" rx="6" fill="#FFFBEB" stroke="#D97706" strokeWidth="1.8" />
+                          <rect x="-32" y="-18" width="64" height="36" rx="6" fill="#FFFBEB" stroke="#D97706" strokeWidth="1.8" />
                           <text x="0" y="4" textAnchor="middle" fontSize="14">⚙️</text>
                           <text x="0" y="32" textAnchor="middle" fontSize="10.5" fontWeight="bold" fill="#92400E">
                             {currentDoc.uml.secondaryActor}
@@ -712,138 +719,358 @@ export function UmlDiagramsContent({
                           </text>
                         </g>
                       )}
-                      <line x1="-70" y1="0" x2="-35" y2="0" stroke="#64748B" strokeWidth="1.5" strokeDasharray="3 3" />
+                      <line x1="-80" y1="0" x2="-40" y2="0" stroke="#64748B" strokeWidth="1.6" strokeDasharray="4 3" />
                     </g>
                   )}
                 </svg>
               </div>
 
-              {/* Nota de negocio en la parte inferior del diagrama */}
-              <div className="mt-3 pt-3 border-t border-neutral-200/80 flex items-start gap-2 text-xs text-neutral-600">
-                <span className="font-bold text-neutral-900 shrink-0">📌 Regla UML:</span>
-                <span>{currentDoc.uml.businessNote}</span>
+              {/* Nota de negocio formal UML (Dog-ear note) */}
+              <div className="mt-3 pt-3 border-t border-neutral-200 flex items-start gap-2.5 text-xs text-neutral-700 bg-neutral-50/70 p-3 rounded-xl border border-neutral-200">
+                <span className="font-bold text-neutral-900 shrink-0 flex items-center gap-1">
+                  <span>📄</span> Nota UML (Regla de Negocio):
+                </span>
+                <span className="leading-relaxed">{currentDoc.uml.businessNote}</span>
               </div>
             </div>
           </div>
 
-          {/* 2. DIAGRAMA DE FLUJO (CON BIFURCACIÓN DE DECISIÓN REAL) */}
+          {/* 2. DIAGRAMA DE FLUJO ESTÁNDAR (ISO 5807 / ANSI X3.5 CON BIFURCACIÓN Y BUCLE) */}
           <div className="border-b border-neutral-200 pb-8 space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-neutral-500 block">
-                  2. Diagrama de Flujo (Flowchart de Proceso con Bifurcación):
+                  2. Diagrama de Flujo del Proceso (Estándar ISO 5807 / ANSI X3.5):
                 </span>
                 <p className="text-xs text-neutral-500 mt-0.5">
-                  Secuencia real de ingeniería: disparador, acción del usuario, petición API, rombo de decisión y ramas [SÍ / Éxito] vs [NO / Excepción].
+                  Diagrama de flujo formal con terminadores (óvalo), entrada de datos (paralelogramo), procesos (rectángulo), decisión (rombo) y bucle de retorno ante excepciones.
                 </p>
               </div>
-              <span className="text-[11px] font-mono text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-md self-start sm:self-auto font-semibold">
-                Flujo con Manejo de Errores
+              <span className="text-[11px] font-mono text-emerald-800 bg-emerald-50 border border-emerald-300 px-2.5 py-0.5 rounded-md self-start sm:self-auto font-semibold">
+                Norma ANSI / ISO 5807
               </span>
             </div>
 
-            <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-6 shadow-2xs">
-              <div className="max-w-2xl mx-auto flex flex-col items-center">
-                {/* 1. NODO INICIO */}
-                <div className="rounded-full bg-neutral-900 text-white px-5 py-2 text-xs font-bold shadow-xs flex items-center gap-2">
-                  <span>▶ Inicio:</span>
-                  <span className="font-normal text-neutral-300">{currentDoc.flow.trigger}</span>
-                </div>
+            {/* LIENZO VECTORIAL DEL DIAGRAMA DE FLUJO ESTÁNDAR */}
+            <div className="rounded-2xl border border-neutral-200 bg-white p-5 overflow-x-auto shadow-xs">
+              <div className="min-w-[840px] flex justify-center py-2">
+                <svg
+                  viewBox="0 0 880 730"
+                  className="w-full max-w-[880px] h-auto select-none"
+                  style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+                >
+                  <defs>
+                    {/* Flecha estándar gris oscuro */}
+                    <marker
+                      id={`flow-arrow-main-${currentDoc.id}`}
+                      viewBox="0 0 10 10"
+                      refX="7"
+                      refY="5"
+                      markerWidth="6"
+                      markerHeight="6"
+                      orient="auto-start-reverse"
+                    >
+                      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#1E293B" />
+                    </marker>
+                    {/* Flecha verde para camino Sí */}
+                    <marker
+                      id={`flow-arrow-green-${currentDoc.id}`}
+                      viewBox="0 0 10 10"
+                      refX="7"
+                      refY="5"
+                      markerWidth="6"
+                      markerHeight="6"
+                      orient="auto-start-reverse"
+                    >
+                      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#059669" />
+                    </marker>
+                    {/* Flecha roja para camino No / bucle */}
+                    <marker
+                      id={`flow-arrow-red-${currentDoc.id}`}
+                      viewBox="0 0 10 10"
+                      refX="7"
+                      refY="5"
+                      markerWidth="6"
+                      markerHeight="6"
+                      orient="auto-start-reverse"
+                    >
+                      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#DC2626" />
+                    </marker>
+                  </defs>
 
-                <div className="h-6 w-0.5 bg-neutral-900" />
-                <div className="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[6px] border-t-neutral-900 -mt-1" />
+                  {/* ======================================================== */}
+                  {/* 1. TERMINADOR: INICIO (Óvalo / Píldora alargada)         */}
+                  {/* ======================================================== */}
+                  <g transform="translate(480, 40)">
+                    <rect x="-80" y="-20" width="160" height="40" rx="20" fill="#0F172A" stroke="#0F172A" strokeWidth="2" />
+                    <text x="0" y="5" textAnchor="middle" fontSize="13" fontWeight="bold" fill="#FFFFFF">
+                      Inicio
+                    </text>
+                  </g>
 
-                {/* 2. PASO DE USUARIO */}
-                <div className="w-full max-w-md rounded-xl border border-neutral-200 bg-white p-3.5 text-center shadow-xs">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded-md inline-block mb-1">
-                    Paso 1 · Interacción de Usuario
-                  </span>
-                  <div className="text-xs sm:text-sm font-semibold text-neutral-900">
-                    {currentDoc.flow.userAction}
-                  </div>
-                </div>
+                  {/* Flecha hacia abajo hacia la Entrada de Datos */}
+                  <line
+                    x1="480"
+                    y1="60"
+                    x2="480"
+                    y2="98"
+                    stroke="#1E293B"
+                    strokeWidth="2"
+                    markerEnd={`url(#flow-arrow-main-${currentDoc.id})`}
+                  />
 
-                <div className="h-6 w-0.5 bg-neutral-900" />
-                <div className="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[6px] border-t-neutral-900 -mt-1" />
+                  {/* ======================================================== */}
+                  {/* 2. ENTRADA DE DATOS (Paralelogramo inclinado / Romboide) */}
+                  {/* ======================================================== */}
+                  <g id="flow-input-node">
+                    {/* Paralelogramo: ancho 360, alto 52, sesgo 18 */}
+                    <polygon
+                      points="320,100 660,100 640,154 300,154"
+                      fill="#F1F5F9"
+                      stroke="#334155"
+                      strokeWidth="2"
+                    />
+                    <text x="480" y="122" textAnchor="middle" fontSize="10" fontWeight="bold" fill="#475569" letterSpacing="0.6">
+                      ENTRADA DE DATOS (USUARIO)
+                    </text>
+                    <text x="480" y="140" textAnchor="middle" fontSize="11" fontWeight="600" fill="#0F172A">
+                      {currentDoc.flow.userAction.length > 55 ? `${currentDoc.flow.userAction.slice(0, 52)}...` : currentDoc.flow.userAction}
+                    </text>
+                  </g>
 
-                {/* 3. PETICIÓN API BACKEND */}
-                <div className="w-full max-w-md rounded-xl border border-neutral-200 bg-white p-3.5 text-center shadow-xs">
-                  <div className="flex items-center justify-center gap-2 mb-1">
-                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-md bg-neutral-900 text-white">
-                      {currentDoc.flow.apiCall.method}
+                  {/* Flecha hacia abajo hacia el Proceso Interno */}
+                  <line
+                    x1="480"
+                    y1="154"
+                    x2="480"
+                    y2="194"
+                    stroke="#1E293B"
+                    strokeWidth="2"
+                    markerEnd={`url(#flow-arrow-main-${currentDoc.id})`}
+                  />
+
+                  {/* ======================================================== */}
+                  {/* 3. PROCESO INTERNO (Rectángulo estándar)                 */}
+                  {/* ======================================================== */}
+                  <g transform="translate(480, 222)">
+                    <rect x="-175" y="-26" width="350" height="52" rx="4" fill="#FFFFFF" stroke="#334155" strokeWidth="2" />
+                    <text x="0" y="-8" textAnchor="middle" fontSize="10" fontWeight="bold" fill="#2563EB" letterSpacing="0.6">
+                      PROCESO · PETICIÓN API AL BACKEND
+                    </text>
+                    <text x="0" y="12" textAnchor="middle" fontSize="11" fontWeight="bold" fill="#0F172A" fontFamily="monospace">
+                      {currentDoc.flow.apiCall.method} {currentDoc.flow.apiCall.endpoint}
+                    </text>
+                  </g>
+
+                  {/* Flecha hacia abajo hacia la Decisión */}
+                  <line
+                    x1="480"
+                    y1="248"
+                    x2="480"
+                    y2="284"
+                    stroke="#1E293B"
+                    strokeWidth="2"
+                    markerEnd={`url(#flow-arrow-main-${currentDoc.id})`}
+                  />
+
+                  {/* ======================================================== */}
+                  {/* 4. DECISIÓN (Rombo / Diamante simétrico de 4 vértices)   */}
+                  {/* ======================================================== */}
+                  <g id="flow-decision-diamond">
+                    {/* Rombo: centro en (480, 335), semi-ancho 155, semi-alto 48 */}
+                    <polygon
+                      points="480,287 635,335 480,383 325,335"
+                      fill="#FEF3C7"
+                      stroke="#D97706"
+                      strokeWidth="2.5"
+                    />
+                    <text x="480" y="325" textAnchor="middle" fontSize="10" fontWeight="bold" fill="#B45309" letterSpacing="0.5">
+                      DECISIÓN / VALIDACIÓN
+                    </text>
+                    <text x="480" y="345" textAnchor="middle" fontSize="11" fontWeight="bold" fill="#78350F">
+                      {currentDoc.flow.decision.question.length > 50
+                        ? `${currentDoc.flow.decision.question.slice(0, 48)}...`
+                        : currentDoc.flow.decision.question}
+                    </text>
+                  </g>
+
+                  {/* ======================================================== */}
+                  {/* RAMA SÍ (Camino verde hacia abajo: éxito y persistencia)  */}
+                  {/* ======================================================== */}
+                  {/* Rótulo SÍ */}
+                  <text x="495" y="405" fontSize="11.5" fontWeight="bold" fill="#059669">
+                    [ Sí ]
+                  </text>
+                  <line
+                    x1="480"
+                    y1="383"
+                    x2="480"
+                    y2="425"
+                    stroke="#059669"
+                    strokeWidth="2.5"
+                    markerEnd={`url(#flow-arrow-green-${currentDoc.id})`}
+                  />
+
+                  {/* 5A. PROCESO DE PERSISTENCIA (Rectángulo verde) */}
+                  <g transform="translate(480, 452)">
+                    <rect x="-175" y="-26" width="350" height="52" rx="4" fill="#ECFDF5" stroke="#059669" strokeWidth="2" />
+                    <text x="0" y="-8" textAnchor="middle" fontSize="10" fontWeight="bold" fill="#047857" letterSpacing="0.6">
+                      PROCESO · PERSISTENCIA EN BASE DE DATOS
+                    </text>
+                    <text x="0" y="11" textAnchor="middle" fontSize="10.5" fontWeight="600" fill="#064E3B">
+                      {currentDoc.flow.yesPath.action.length > 55
+                        ? `${currentDoc.flow.yesPath.action.slice(0, 52)}...`
+                        : currentDoc.flow.yesPath.action}
+                    </text>
+                  </g>
+
+                  {/* Flecha hacia abajo hacia la Salida de Éxito */}
+                  <line
+                    x1="480"
+                    y1="478"
+                    x2="480"
+                    y2="512"
+                    stroke="#059669"
+                    strokeWidth="2"
+                    markerEnd={`url(#flow-arrow-green-${currentDoc.id})`}
+                  />
+
+                  {/* 5B. SALIDA DE ÉXITO (Paralelogramo de salida) */}
+                  <g>
+                    <polygon
+                      points="320,514 650,514 632,564 302,564"
+                      fill="#F0FDF4"
+                      stroke="#16A34A"
+                      strokeWidth="2"
+                    />
+                    <text x="480" y="534" textAnchor="middle" fontSize="10" fontWeight="bold" fill="#15803D" letterSpacing="0.6">
+                      SALIDA DE DATOS · RESPUESTA {currentDoc.flow.yesPath.responseCode}
+                    </text>
+                    <text x="480" y="552" textAnchor="middle" fontSize="10.5" fontWeight="600" fill="#14532D">
+                      {currentDoc.flow.yesPath.finalState.length > 55
+                        ? `${currentDoc.flow.yesPath.finalState.slice(0, 52)}...`
+                        : currentDoc.flow.yesPath.finalState}
+                    </text>
+                  </g>
+
+                  {/* Flecha hacia abajo hacia Fin */}
+                  <line
+                    x1="480"
+                    y1="564"
+                    x2="480"
+                    y2="600"
+                    stroke="#059669"
+                    strokeWidth="2"
+                    markerEnd={`url(#flow-arrow-green-${currentDoc.id})`}
+                  />
+
+                  {/* 5C. TERMINADOR: FIN (Óvalo verde de éxito) */}
+                  <g transform="translate(480, 622)">
+                    <rect x="-70" y="-19" width="140" height="38" rx="19" fill="#059669" stroke="#047857" strokeWidth="2" />
+                    <text x="0" y="5" textAnchor="middle" fontSize="12.5" fontWeight="bold" fill="#FFFFFF">
+                      Fin (Éxito)
+                    </text>
+                  </g>
+
+                  {/* ======================================================== */}
+                  {/* RAMA NO (Camino rojo hacia la izquierda: error y bucle)   */}
+                  {/* ======================================================== */}
+                  {/* Rótulo NO */}
+                  <text x="278" y="325" fontSize="11.5" fontWeight="bold" fill="#DC2626">
+                    [ No ]
+                  </text>
+                  {/* Línea horizontal saliendo del vértice izquierdo del rombo (325, 335) */}
+                  <line x1="325" y1="335" x2="215" y2="335" stroke="#DC2626" strokeWidth="2.5" />
+                  {/* Línea vertical hacia abajo al Paralelogramo de Error */}
+                  <line
+                    x1="215"
+                    y1="335"
+                    x2="215"
+                    y2="388"
+                    stroke="#DC2626"
+                    strokeWidth="2.5"
+                    markerEnd={`url(#flow-arrow-red-${currentDoc.id})`}
+                  />
+
+                  {/* 6A. SALIDA DE ERROR (Paralelogramo de Excepción) */}
+                  <g>
+                    {/* Ancho 220, alto 60, sesgo 14 */}
+                    <polygon
+                      points="120,390 310,390 294,452 104,452"
+                      fill="#FEF2F2"
+                      stroke="#DC2626"
+                      strokeWidth="2"
+                    />
+                    <text x="207" y="410" textAnchor="middle" fontSize="9.5" fontWeight="bold" fill="#DC2626" letterSpacing="0.5">
+                      SALIDA · ALERTA {currentDoc.flow.noPath.responseCode}
+                    </text>
+                    <text x="207" y="428" textAnchor="middle" fontSize="10" fontWeight="600" fill="#991B1B">
+                      {currentDoc.flow.noPath.action.length > 34
+                        ? `${currentDoc.flow.noPath.action.slice(0, 32)}...`
+                        : currentDoc.flow.noPath.action}
+                    </text>
+                    <text x="207" y="443" textAnchor="middle" fontSize="9" fill="#B91C1C">
+                      {currentDoc.flow.noPath.recoveryState.length > 35
+                        ? `${currentDoc.flow.noPath.recoveryState.slice(0, 33)}...`
+                        : currentDoc.flow.noPath.recoveryState}
+                    </text>
+                  </g>
+
+                  {/* ======================================================== */}
+                  {/* 6B. BUCLE DE RETORNO (LOOPBACK) AL PASO DE ENTRADA       */}
+                  {/* Sube por la izquierda y conecta al paso de Entrada      */}
+                  {/* ======================================================== */}
+                  <path
+                    d="M 104 422 L 40 422 L 40 127 L 298 127"
+                    fill="none"
+                    stroke="#DC2626"
+                    strokeWidth="2.25"
+                    strokeDasharray="6 4"
+                    markerEnd={`url(#flow-arrow-red-${currentDoc.id})`}
+                  />
+                  {/* Etiqueta vertical en el bucle */}
+                  <g transform="translate(32, 280) rotate(-90)">
+                    <text x="0" y="0" textAnchor="middle" fontSize="10" fontWeight="bold" fill="#DC2626" letterSpacing="0.8">
+                      BUCLE DE CORRECCIÓN (REINTENTO DE ENTRADA)
+                    </text>
+                  </g>
+
+                  {/* ======================================================== */}
+                  {/* 7. LEYENDA TÉCNICA DE SÍMBOLOS ESTÁNDAR (ISO 5807)        */}
+                  {/* ======================================================== */}
+                  <g transform="translate(180, 680)">
+                    <rect x="0" y="0" width="530" height="34" rx="6" fill="#F8FAFC" stroke="#E2E8F0" strokeWidth="1" />
+                    <text x="14" y="21" fontSize="9.5" fill="#64748B" fontWeight="500">
+                      <tspan fontWeight="bold" fill="#0F172A">Símbolos ISO 5807:</tspan> Óvalo = Terminador · Paralelogramo = Entrada/Salida · Rectángulo = Proceso · Rombo = Decisión
+                    </text>
+                  </g>
+                </svg>
+              </div>
+
+              {/* Explicación de la ingeniería del flujo */}
+              <div className="mt-3 pt-3 border-t border-neutral-200 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div className="rounded-xl border border-emerald-200 bg-emerald-50/60 p-3">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="font-bold text-emerald-800">✓ Camino Feliz [SÍ]:</span>
+                    <span className="font-mono text-[11px] font-bold text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded">
+                      {currentDoc.flow.yesPath.responseCode}
                     </span>
-                    <span className="text-xs font-mono font-bold text-neutral-800">
-                      {currentDoc.flow.apiCall.endpoint}
+                  </div>
+                  <p className="text-emerald-900 leading-relaxed">
+                    {currentDoc.flow.yesPath.action}. Estado final: <b>{currentDoc.flow.yesPath.finalState}</b>.
+                  </p>
+                </div>
+
+                <div className="rounded-xl border border-amber-200 bg-amber-50/60 p-3">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="font-bold text-amber-800">⚠️ Excepción y Bucle [NO]:</span>
+                    <span className="font-mono text-[11px] font-bold text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded">
+                      {currentDoc.flow.noPath.responseCode}
                     </span>
                   </div>
-                  <div className="text-[11px] font-mono text-neutral-500">
-                    {currentDoc.flow.apiCall.payloadSummary}
-                  </div>
-                </div>
-
-                <div className="h-6 w-0.5 bg-neutral-900" />
-                <div className="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[6px] border-t-neutral-900 -mt-1" />
-
-                {/* 4. ROMBO DE DECISIÓN (BIFURCACIÓN REAL) */}
-                <div className="w-full max-w-lg rounded-2xl border-2 border-neutral-900 bg-white p-4 text-center shadow-sm relative">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-500 bg-neutral-100 px-2 py-0.5 rounded-md inline-block mb-1">
-                    Regla de Negocio / Decisión
-                  </span>
-                  <div className="text-sm font-bold text-neutral-900">
-                    {currentDoc.flow.decision.question}
-                  </div>
-                  <div className="text-xs text-neutral-500 mt-0.5">
-                    {currentDoc.flow.decision.evaluation}
-                  </div>
-                </div>
-
-                {/* BIFURCACIÓN SÍ / NO EN DOS COLUMNAS */}
-                <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                  {/* RAMA SÍ (ÉXITO) */}
-                  <div className="rounded-xl border border-emerald-300 bg-emerald-50/70 p-4 flex flex-col justify-between">
-                    <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="bg-emerald-600 text-white text-[11px] font-bold px-2 py-0.5 rounded-full">
-                          ✓ SÍ (Válido)
-                        </span>
-                        <span className="text-xs font-mono font-bold text-emerald-800">
-                          {currentDoc.flow.yesPath.responseCode}
-                        </span>
-                      </div>
-                      <p className="text-xs text-emerald-950 font-medium leading-relaxed">
-                        {currentDoc.flow.yesPath.action}
-                      </p>
-                    </div>
-
-                    <div className="mt-4 pt-3 border-t border-emerald-200/80">
-                      <div className="rounded-full bg-emerald-700 text-white px-3 py-1.5 text-[11px] font-bold text-center">
-                        🏁 {currentDoc.flow.yesPath.finalState}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* RAMA NO (EXCEPCIÓN / FALLO) */}
-                  <div className="rounded-xl border border-amber-300 bg-amber-50/70 p-4 flex flex-col justify-between">
-                    <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="bg-amber-600 text-white text-[11px] font-bold px-2 py-0.5 rounded-full">
-                          ✗ NO (Fallo / Conflicto)
-                        </span>
-                        <span className="text-xs font-mono font-bold text-amber-800">
-                          {currentDoc.flow.noPath.responseCode}
-                        </span>
-                      </div>
-                      <p className="text-xs text-amber-950 font-medium leading-relaxed">
-                        {currentDoc.flow.noPath.action}
-                      </p>
-                    </div>
-
-                    <div className="mt-4 pt-3 border-t border-amber-200/80">
-                      <div className="rounded-full bg-amber-800 text-white px-3 py-1.5 text-[11px] font-bold text-center">
-                        ⚠️ {currentDoc.flow.noPath.recoveryState}
-                      </div>
-                    </div>
-                  </div>
+                  <p className="text-amber-900 leading-relaxed">
+                    {currentDoc.flow.noPath.action}. <b>Bucle de retorno:</b> {currentDoc.flow.noPath.recoveryState}.
+                  </p>
                 </div>
               </div>
             </div>
