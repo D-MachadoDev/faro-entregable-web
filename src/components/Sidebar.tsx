@@ -133,9 +133,10 @@ export function Sidebar({
 
         {stage(
           'uml',
-          '4. Casos de Uso',
+          '4. Arquitectura y Casos de Uso',
           <>
-            {item('Diagrama General', 'uml', 'diagrama-general-cu')}
+            {item('Diagrama de Despliegue', 'uml', 'diagrama-despliegue')}
+            {item('Diagrama General CU', 'uml', 'diagrama-general-cu')}
             <div className="pt-1.5 pb-0.5">
               <span className="block px-4 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">
                 Fichas Técnicas (6.3)
@@ -157,6 +158,12 @@ export function Sidebar({
             {item('CU-14: Alerta WhatsApp', 'uml', 'cu-14')}
             {item('CU-15: Actualizar Contacto', 'uml', 'cu-15')}
             {item('CU-16: Devolver Ilegible', 'uml', 'cu-16')}
+            <div className="pt-2 pb-0.5 border-t border-neutral-200 mt-2">
+              <span className="block px-4 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">
+                Marco Académico
+              </span>
+            </div>
+            {item('8. Referentes Bibliográficos', 'uml', 'referentes-bibliograficos')}
           </>,
         )}
       </nav>

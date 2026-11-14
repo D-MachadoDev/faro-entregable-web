@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { System3dConstellation } from '@/components/organisms/System3dConstellation';
+import { DeploymentDiagram } from '@/components/organisms/DeploymentDiagram';
+import { BibliographicReferences } from '@/components/organisms/BibliographicReferences';
 import { USE_CASE_DOCS, type UmlDocItem } from '@/data/useCaseDocsData';
 
 // Iconos vectoriales limpios (reemplazo de emojis y stickers)
@@ -172,12 +174,17 @@ export function UmlDiagramsContent({
         </p>
 
         <h1 className="mt-2 text-3xl sm:text-4xl font-bold leading-tight tracking-tight text-neutral-900">
-          Casos de Uso de Faroo
+          Casos de Uso & Arquitectura de Faroo
         </h1>
 
         <p className="mt-2.5 max-w-3xl text-sm sm:text-base leading-relaxed text-neutral-600">
-          En esta entrega dejamos los 16 casos de uso del sistema. Cada uno tiene su diagrama de caso de uso (actores y óvalos), el diagrama de flujo con las decisiones y qué pasa si algo falla, y la captura de pantalla de la interfaz corriendo en local.
+          En esta entrega dejamos la arquitectura de despliegue en la nube, el diagrama general de casos de uso y los 16 casos de uso del sistema. Cada caso de uso cuenta con su diagrama formal UML (actores y óvalos), diagrama de flujo operativo bajo norma ISO 5807 y la captura de pantalla con datos reales de la aplicación en ejecución.
         </p>
+      </section>
+
+      {/* 6.1 Diagrama de Despliegue de la Solución en la Nube */}
+      <section id="diagrama-despliegue" className="scroll-mt-24">
+        <DeploymentDiagram />
       </section>
 
       {/* Diagrama general del sistema */}
@@ -1338,6 +1345,9 @@ export function UmlDiagramsContent({
           </div>
         </div>
       </section>
+
+      {/* 8. Referentes Bibliográficos */}
+      <BibliographicReferences />
 
       {/* LIGHTBOX MODAL PARA VER CAPTURA EN GRANDE */}
       {lightboxOpen && (
